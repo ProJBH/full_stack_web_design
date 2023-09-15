@@ -3,7 +3,7 @@ package com.bohuajia.o2o.entity;
 import java.util.Date;
 
 public class Shop {
-	// Primary Id
+	// Primary key
 	private Long shopId;
 	private String shopName;
 	private String shopDesc;
