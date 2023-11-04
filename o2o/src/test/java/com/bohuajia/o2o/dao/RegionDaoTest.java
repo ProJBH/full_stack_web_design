@@ -16,7 +16,7 @@ public class RegionDaoTest extends BaseTest{
 	
 	@Test
 	public void testQueryArea(){
-		List<Region> areaList = regionDao.queryRegion();
-		assertEquals(2, areaList.size());
+		List<Region> regionList = regionDao.queryRegion();
+		assertEquals(2, regionList.size());
 	}
 }
