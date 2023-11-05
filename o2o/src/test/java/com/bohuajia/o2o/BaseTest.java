@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 //Tell Junit where is the location of the Spring configuration file
-@ContextConfiguration({ "classpath:spring/spring-dao.xml"})
+@ContextConfiguration({ "classpath:spring/spring-dao.xml","classpath:spring/spring-service.xml"})
 public class BaseTest {
 	
 	
