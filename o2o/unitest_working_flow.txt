@@ -1,0 +1,5 @@
+1. One general class(BaseTest) 
+	-- tag used(@RunWith -- tell spring to use which class to run the test, in case 'SpringJUnit4ClassRunner.class')
+	-- tag used(@ContextConfiguration -- tell spring when the current class start, load the following configure file(s)(.xml file))
+2. RegionDAO test
+	-- tag used(@test -- define the test func)
