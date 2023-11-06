@@ -1,0 +1,33 @@
+SpringMVC:DispatcherServlet
+	The front-end controller DispatcherServlet is the core piece of the entire MVC framework.
+	It is mainly used to intercept external requests that meet the requirements and distribute the requests to different controllers.
+	Based on the results processed by the controller, a corresponding response is generated and sent to the client.
+
+	TODO://Read the source code of DispatcherServlet to understand the specific calling steps.
+	
+	Ref.
+		https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html
+		https://zhuanlan.zhihu.com/p/22420952
+
+Spring:IOC & AOP
+IOC:
+	IOC is responsible for controlling the life cycle of objects and the relationship between objects by Spring.
+	IOC more like a filter, you only need to setup the conditions and filter will find the suitable result and send back to user.
+	IOC is implemented in Spring through DI and dependency injection. 
+	The dependencies between components are determined by the container during runtime.
+	And the container dynamically injects certain dependencies into the components.
+	e.g. Obj A needs a connection, A doesn't need to know when and how to build the connection.
+	We can tell Spring that A needs a connection, then Spring will build connection at a proper time and injects it into obj A. 
+	This completes the control of the relationship between various objects.
+
+AOP:
+	AOP is aspect-oriented programming. 
+	e.g. Operations of adding, deleting, modifying, and checking all require permission verification. 
+	And we do not want the permission verification code to remain in our add, delet, modify, and check methods.
+	AOP dynamically enter the permission verification code in front of our add, delete, modify, and check methods when the program is running to complete permission verification.
+	The implementation of AOP is dynamic proxy.
+
+	TODO://Read more about AOP dynamic proxy.
+
+MyBatis:ORM
+	It automatically persists the objects in the program to the relational database by using the original data that describes the mapping between the object and the database.
