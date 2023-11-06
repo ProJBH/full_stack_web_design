@@ -1,0 +1,6 @@
+1. DAO layer(RegionDAO): Create interface for target obj, define related func -- tag used(no tag needs)
+2. Source folder/Mapper(RegionDAO.xml): Create xml file corresponding to DAO
+3. xml: define the sql language for functions mentioned in xml
+4. At service layer(RegionServiceImpl): call DAO layer func and return the result to controller -- tag used(@override interface,@Service,@Autowired--inject obj)
+5. Controller layer(RegionController): when receive the data, send data to front-end -- tag used(@Controller,@RequestMapping--indicate url,@ResponseBody--tell controller, the data have to be json format)
+ 
