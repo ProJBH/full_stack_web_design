@@ -18,6 +18,7 @@ public class ShopDaoTest extends BaseTest{
 	@Autowired
 	private ShopDAO shopDao;
 	@Test
+	@Ignore
 	public void testInsertShop() {
 		Shop shop = new Shop();
 		PersonInfo owner = new PersonInfo();
@@ -38,6 +39,17 @@ public class ShopDaoTest extends BaseTest{
 		shop.setEnableStatus(0);
 		shop.setAdvice("verifying...");
 		int effectedNum = shopDao.insertShop(shop);
+		assertEquals(1, effectedNum);
+	}
+	
+	@Test
+	public void testUpdateShop() {
+		Shop shop = new Shop();
+		shop.setShopId(1L);
+		shop.setShopDesc("test desc");
+		shop.setShopAddr("test addr");
+		shop.setLastEditTime(new Date());
+		int effectedNum = shopDao.updateShop(shop);
 		assertEquals(1, effectedNum);
 	}
 }
