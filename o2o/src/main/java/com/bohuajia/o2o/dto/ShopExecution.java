@@ -25,20 +25,20 @@ public class ShopExecution {
 
 	}
 
-	// Constructor used when store operation fails
+	// Constructor used when shop operation fails
 	public ShopExecution(ShopStateEnum stateEnum) {
 		this.state = stateEnum.getState();
 		this.stateInfo = stateEnum.getStateInfo();
 	}
 
-	// Constructor used when store operation success
+	// Constructor used when shop operation success
 	public ShopExecution(ShopStateEnum stateEnum, Shop shop) {
 		this.state = stateEnum.getState();
 		this.stateInfo = stateEnum.getStateInfo();
 		this.shop = shop;
 	}
 
-	// Constructor used when store operation success
+	// Constructor used when shop operation success
 	public ShopExecution(ShopStateEnum stateEnum, List<Shop> shopList) {
 		this.state = stateEnum.getState();
 		this.stateInfo = stateEnum.getStateInfo();
