@@ -3,4 +3,9 @@
 3. xml: define the sql language for functions mentioned in xml
 4. At service layer(RegionServiceImpl): call DAO layer func and return the result to controller -- tag used(@override interface,@Service,@Autowired--inject obj)
 5. Controller layer(RegionController): when receive the data, send data to front-end -- tag used(@Controller,@RequestMapping--indicate url,@ResponseBody--tell controller, the data have to be json format)
-Sequence Flow: DAO(interface)->Resources/mapper(DAO.xml)->unitest
+Sequence Flow1: DAO(interface)->Resources/mapper(DAO.xml)->unitest
+Sequence Flow2: 
+	1. Insert shop info to database
+	2. Return shopID
+	3. Generate image folder and store images though shopID
+	4. Update image folder address back to database
