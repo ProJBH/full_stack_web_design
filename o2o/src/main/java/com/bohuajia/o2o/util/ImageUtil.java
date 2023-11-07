@@ -10,6 +10,8 @@ import javax.imageio.ImageIO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.bohuajia.o2o.dto.ImageHolder;
+
 import java.io.File;
 
 import net.coobird.thumbnailator.Thumbnails;
@@ -20,6 +22,44 @@ public class ImageUtil {
 	private static final SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
 	private static final Random r = new Random();
 	private static Logger logger = LoggerFactory.getLogger(ImageUtil.class);
+	
+	/**
+	 * Generate a random file name, the current year, month, day, hour, minute, second + five-digit random number
+	 * 
+	 * @return
+	 */
+	public static String getRandomFileName() {
+		// Get a random five-digit number
+		int rannum = r.nextInt(89999) + 10000;
+		String nowTimeStr = sDateFormat.format(new Date());
+		return nowTimeStr + rannum;
+	}
+	
+	/**
+	 * Get the extension of the input file stream
+	 * 
+	 * @param thumbnail
+	 * @return
+	 */
+	private static String getFileExtension(String fileName) {
+		return fileName.substring(fileName.lastIndexOf("."));
+	}
+	
+	/**
+	 * Create the directories involved in the target path,
+	 * e.g. /home/work/bohuajia/xxx.jpg, then home, work, bohuajia
+	 * These three folders must be created automatically
+	 * 
+	 * @param targetAddr
+	 */
+	private static void makeDirPath(String targetAddr) {
+		String realFileParentPath = PathUtil.getImgBasePath() + targetAddr;
+		File dirPath = new File(realFileParentPath);
+		if (!dirPath.exists()) {
+			dirPath.mkdirs();
+		}
+	}
+
 	/**
 	 * Process thumbnails and return the relative value path of the newly generated image
 	 * 
@@ -54,43 +94,6 @@ public class ImageUtil {
 		return relativeAddr;
 	}
 	
-	/**
-	 * Get the extension of the input file stream
-	 * 
-	 * @param thumbnail
-	 * @return
-	 */
-	private static String getFileExtension(String fileName) {
-		return fileName.substring(fileName.lastIndexOf("."));
-	}
-	
-	/**
-	 * Create the directories involved in the target path,
-	 * e.g. /home/work/bohuajia/xxx.jpg, then home, work, bohuajia
-	 * These three folders must be created automatically
-	 * 
-	 * @param targetAddr
-	 */
-	private static void makeDirPath(String targetAddr) {
-		String realFileParentPath = PathUtil.getImgBasePath() + targetAddr;
-		File dirPath = new File(realFileParentPath);
-		if (!dirPath.exists()) {
-			dirPath.mkdirs();
-		}
-	}
-
-	/**
-	 * Generate a random file name, the current year, month, day, hour, minute, second + five-digit random number
-	 * 
-	 * @return
-	 */
-	public static String getRandomFileName() {
-		// Get a random five-digit number
-		int rannum = r.nextInt(89999) + 10000;
-		String nowTimeStr = sDateFormat.format(new Date());
-		return nowTimeStr + rannum;
-	}
-
 	public static void main(String[] args) throws IOException {
 		Thumbnails.of(new File("/Users/projbh/Github_projects/full_stack_web_design/image/Baymax.jpeg")).size(200, 200)
 				.watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/watermark.jpg")), 0.25f)
