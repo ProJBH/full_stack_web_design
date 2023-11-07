@@ -31,3 +31,6 @@ AOP:
 
 MyBatis:ORM
 	It automatically persists the objects in the program to the relational database by using the original data that describes the mapping between the object and the database.
+
+Log:
+	Log files store at CATALINA_BASE (shows in console when start Tomcat) in case: /Users/projbh/eclipse/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0
