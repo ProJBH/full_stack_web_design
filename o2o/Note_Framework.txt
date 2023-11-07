@@ -34,3 +34,6 @@ MyBatis:ORM
 
 Log:
 	Log files store at CATALINA_BASE (shows in console when start Tomcat) in case: /Users/projbh/eclipse/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0
+
+thumbnailator:
+	wiki: https://github.com/coobird/thumbnailator/wiki/Examples
