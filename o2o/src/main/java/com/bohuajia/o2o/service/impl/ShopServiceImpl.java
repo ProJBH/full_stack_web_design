@@ -3,6 +3,7 @@ package com.bohuajia.o2o.service.impl;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bohuajia.o2o.dao.ShopDAO;
@@ -15,6 +16,7 @@ import com.bohuajia.o2o.service.ShopService;
 import com.bohuajia.o2o.util.ImageUtil;
 import com.bohuajia.o2o.util.PathUtil;
 
+@Service
 public class ShopServiceImpl implements ShopService{
 	@Autowired
 	private ShopDAO shopDao;
