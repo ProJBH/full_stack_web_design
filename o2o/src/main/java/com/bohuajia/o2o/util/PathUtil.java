@@ -9,7 +9,7 @@ public class PathUtil {
 		if (os.toLowerCase().startsWith("win")) {
 			basePath = "D:/projectdev/image";
 		} else {
-			basePath = "/Users/projbh/Github_projects/image";
+			basePath = "/Users/projbh/Github_projects/full_stack_web_design/image";
 		}
 		basePath = basePath.replace("/", seperator);
 		return basePath;
