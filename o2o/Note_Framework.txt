@@ -37,3 +37,6 @@ Log:
 
 thumbnailator:
 	wiki: https://github.com/coobird/thumbnailator/wiki/Examples
+	
+jackson-databind:
+https://github.com/FasterXML/jackson-databind
