@@ -3,7 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bohuajia.o2o.dao.ShopCategoryDAO">
-	<select id="queryShopCategory" resultType="com.imooc.o2o.entity.ShopCategory">
+	<select id="queryShopCategory" resultType="com.bohuajia.o2o.entity.ShopCategory">
 		SELECT
 		shop_category_id,
 		shop_category_name,
