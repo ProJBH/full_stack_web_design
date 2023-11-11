@@ -19,11 +19,12 @@ $(function() {
 	// 编辑店铺信息的URL
 	var editShopUrl = '/o2o/shopadmin/modifyshop';
 	// Determine whether it is an editing operation or a registration operation
-	if (!isEdit) {
-		getShopInitInfo();
-	} else {
-		getShopInfo(shopId);
-	}
+	//if (!isEdit) {
+	//	getShopInitInfo();
+	//} else {
+	//	getShopInfo(shopId);
+	//}
+	getShopInitInfo()
 	// 通过店铺Id获取店铺信息
 	function getShopInfo(shopId) {
 		$.getJSON(shopInfoUrl, function(data) {
