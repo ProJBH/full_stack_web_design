@@ -20,9 +20,13 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import com.bohuajia.o2o.dto.ImageHolder;
 import com.bohuajia.o2o.dto.ShopExecution;
 import com.bohuajia.o2o.entity.PersonInfo;
+import com.bohuajia.o2o.entity.Region;
 import com.bohuajia.o2o.entity.Shop;
+import com.bohuajia.o2o.entity.ShopCategory;
 import com.bohuajia.o2o.enums.ShopStateEnum;
 import com.bohuajia.o2o.exceptions.ShopOperationException;
+import com.bohuajia.o2o.service.RegionService;
+import com.bohuajia.o2o.service.ShopCategoryService;
 import com.bohuajia.o2o.service.ShopService;
 import com.bohuajia.o2o.util.HttpServletRequestUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,6 +36,30 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ShopManagementController {
 	@Autowired
 	private ShopService shopService;
+	@Autowired
+	private ShopCategoryService shopCategoryService;
+	@Autowired
+	private RegionService regionService;
+	
+	
+	@RequestMapping(value = "/getshopinitinfo", method = RequestMethod.GET)
+	@ResponseBody
+	private Map<String, Object> getShopInitInfo() {
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		List<ShopCategory> shopCategoryList = new ArrayList<ShopCategory>();
+		List<Region> regionList = new ArrayList<Region>();
+		try {
+			shopCategoryList = shopCategoryService.getShopCategoryList(new ShopCategory());
+			regionList = regionService.getRegionList();
+			modelMap.put("shopCategoryList", shopCategoryList);
+			modelMap.put("regionList", regionList);
+			modelMap.put("success", true);
+		} catch (Exception e) {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", e.getMessage());
+		}
+		return modelMap;
+	}
 	
 	@RequestMapping(value = "/registershop", method = RequestMethod.POST)
 	@ResponseBody
