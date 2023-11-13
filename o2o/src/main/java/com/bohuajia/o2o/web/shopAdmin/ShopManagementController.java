@@ -28,6 +28,7 @@ import com.bohuajia.o2o.exceptions.ShopOperationException;
 import com.bohuajia.o2o.service.RegionService;
 import com.bohuajia.o2o.service.ShopCategoryService;
 import com.bohuajia.o2o.service.ShopService;
+import com.bohuajia.o2o.util.CodeUtil;
 import com.bohuajia.o2o.util.HttpServletRequestUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -65,6 +66,11 @@ public class ShopManagementController {
 	@ResponseBody
 	private Map<String, Object> registerShop(HttpServletRequest request) {
 		Map<String, Object> modelMap = new HashMap<String, Object>();
+		if (!CodeUtil.checkVerifyCode(request)) {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", "Wrong verification code");
+			return modelMap;
+		}
 		// 1.Receive and convert corresponding parameters, including shop info and image info
 		String shopStr = HttpServletRequestUtil.getString(request, "shopStr");
 		ObjectMapper mapper = new ObjectMapper();
