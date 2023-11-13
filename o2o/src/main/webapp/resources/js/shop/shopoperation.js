@@ -110,7 +110,7 @@ $(function() {
 		// 获取表单里输入的验证码
 		var verifyCodeActual = $('#j_captcha').val();
 		if (!verifyCodeActual) {
-			$.toast('请输入验证码！');
+			$.toast('Please enter verification code！');
 			return;
 		}
 		formData.append('verifyCodeActual', verifyCodeActual);
