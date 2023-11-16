@@ -73,8 +73,7 @@ public class ShopServiceImpl implements ShopService{
 
 	@Override
 	public Shop getByShopId(long shopId) {
-		// TODO Auto-generated method stub
-		return null;
+		return shopDao.queryByShopId(shopId);
 	}
 
 	@Override
