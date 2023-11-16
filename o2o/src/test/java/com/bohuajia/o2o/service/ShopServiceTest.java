@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Date;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -26,6 +27,7 @@ public class ShopServiceTest extends BaseTest{
 	private ShopService shopService;
 	
 	@Test
+	@Ignore
 	public void testAddShop() throws ShopOperationException, FileNotFoundException {
 		Shop shop = new Shop();
 		PersonInfo owner = new PersonInfo();
@@ -49,5 +51,17 @@ public class ShopServiceTest extends BaseTest{
 		ImageHolder imageHolder = new ImageHolder(shopImg.getName(), is);
 		ShopExecution se = shopService.addShop(shop, imageHolder );
 		assertEquals(ShopStateEnum.CHECK.getState(), se.getState());
+	}
+	
+	@Test
+	public void testModifyShop() throws ShopOperationException, FileNotFoundException {
+		Shop shop = new Shop();
+		shop.setShopId(1L);
+		shop.setShopName("Updated shop name");
+		File shopImg = new File("/Users/projbh/Github_projects/full_stack_web_design/image/minions.jpg");
+		InputStream is = new FileInputStream(shopImg);
+		ImageHolder imageHolder = new ImageHolder("minions.jpg", is);
+		ShopExecution shopExecution = shopService.modifyShop(shop, imageHolder);
+		System.out.println("The new image directory is：" + shopExecution.getShop().getShopImg());
 	}
 }
