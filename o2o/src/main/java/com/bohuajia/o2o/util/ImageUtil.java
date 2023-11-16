@@ -94,6 +94,25 @@ public class ImageUtil {
 		return relativeAddr;
 	}
 	
+	/**
+	 * storePath is the path to a file or a directory. If storePath is a file path, delete the file.
+	 * If storePath is a directory path, delete all files in the directory.
+	 * 
+	 * @param storePath
+	 */
+	public static void deleteFileOrPath(String storePath) {
+		File fileOrPath = new File(PathUtil.getImgBasePath() + storePath);
+		if (fileOrPath.exists()) {
+			if (fileOrPath.isDirectory()) {
+				File files[] = fileOrPath.listFiles();
+				for (int i = 0; i < files.length; i++) {
+					files[i].delete();
+				}
+			}
+			fileOrPath.delete();
+		}
+	}
+	
 	public static void main(String[] args) throws IOException {
 		Thumbnails.of(new File("/Users/projbh/Github_projects/full_stack_web_design/image/Baymax.jpeg")).size(200, 200)
 				.watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/watermark.jpg")), 0.25f)
