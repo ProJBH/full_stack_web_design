@@ -1,9 +1,3 @@
-2023-11-10 23:39:42.785 [main] DEBUG com.bohuajia.o2o.dao.RegionDAO.queryRegion - ==>  Preparing: SELECT region_id, region_name, priority, create_time, modified_time FROM tb_region ORDER BY priority DESC 
-2023-11-10 23:39:42.806 [main] DEBUG com.bohuajia.o2o.dao.RegionDAO.queryRegion - ==> Parameters: 
-2023-11-10 23:39:42.847 [main] DEBUG com.bohuajia.o2o.dao.RegionDAO.queryRegion - <==      Total: 2
-2023-11-10 23:39:55.415 [main] DEBUG c.b.o2o.dao.ShopCategoryDAO.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id is not null ORDER BY priority DESC 
-2023-11-10 23:39:55.436 [main] DEBUG c.b.o2o.dao.ShopCategoryDAO.queryShopCategory - ==> Parameters: 
-2023-11-10 23:39:55.457 [main] DEBUG c.b.o2o.dao.ShopCategoryDAO.queryShopCategory - <==      Total: 0
-2023-11-10 23:43:35.220 [main] DEBUG c.b.o2o.dao.ShopCategoryDAO.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id is not null ORDER BY priority DESC 
-2023-11-10 23:43:35.237 [main] DEBUG c.b.o2o.dao.ShopCategoryDAO.queryShopCategory - ==> Parameters: 
-2023-11-10 23:43:35.276 [main] DEBUG c.b.o2o.dao.ShopCategoryDAO.queryShopCategory - <==      Total: 1
+2023-11-16 14:15:40.641 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.region_id, a.region_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_region a, tb_shop_category sc WHERE s.region_id=a.region_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2023-11-16 14:15:40.667 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - ==> Parameters: 1(Long)
+2023-11-16 14:15:40.713 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - <==      Total: 1
