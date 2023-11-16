@@ -82,7 +82,7 @@ public class ShopServiceImpl implements ShopService{
 		if (shop == null || shop.getShopId() == null) {
 			return new ShopExecution(ShopStateEnum.NULL_SHOP);
 		} else {
-			// 1.判断是否需要处理图片
+			// 1.Determine whether images need to be processed
 			try {
 				if (thumbnail.getImage() != null && thumbnail.getImageName() != null
 						&& !"".equals(thumbnail.getImageName())) {
@@ -92,9 +92,10 @@ public class ShopServiceImpl implements ShopService{
 					}
 					addShopImg(shop, thumbnail);
 				}
-				// 2.更新店铺信息
+				// 2.Update shop info
 				shop.setLastEditTime(new Date());
 				int effectedNum = shopDao.updateShop(shop);
+				// if no shop has been selected
 				if (effectedNum <= 0) {
 					return new ShopExecution(ShopStateEnum.INNER_ERROR);
 				} else {
