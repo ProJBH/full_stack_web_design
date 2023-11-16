@@ -58,7 +58,7 @@ public class ShopDaoTest extends BaseTest{
 	public void testQueryByShopId() {
 		long shopId = 1;
 		Shop shop = shopDao.queryByShopId(shopId);
-		System.out.println("areaId:" + shop.getRegion().getRegionId());
-		System.out.println("areaName" + shop.getRegion().getRegionName());
+		System.out.println("areaId: " + shop.getRegion().getRegionId());
+		System.out.println("areaName: " + shop.getRegion().getRegionName());
 	}
 }
