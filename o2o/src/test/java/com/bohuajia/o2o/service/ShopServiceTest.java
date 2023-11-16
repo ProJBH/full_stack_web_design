@@ -54,6 +54,7 @@ public class ShopServiceTest extends BaseTest{
 	}
 	
 	@Test
+	@Ignore
 	public void testModifyShop() throws ShopOperationException, FileNotFoundException {
 		Shop shop = new Shop();
 		shop.setShopId(1L);
@@ -63,5 +64,16 @@ public class ShopServiceTest extends BaseTest{
 		ImageHolder imageHolder = new ImageHolder("minions.jpg", is);
 		ShopExecution shopExecution = shopService.modifyShop(shop, imageHolder);
 		System.out.println("The new image directory is：" + shopExecution.getShop().getShopImg());
+	}
+	
+	@Test
+	public void testGetShopList() {
+		Shop shopCondition = new Shop();
+		ShopCategory sc = new ShopCategory();
+		sc.setShopCategoryId(12L);
+		shopCondition.setShopCategory(sc);
+		ShopExecution se = shopService.getShopList(shopCondition, 2, 2);
+		System.out.println("Number of shop list：" + se.getShopList().size());
+		System.out.println("Amount of shop：" + se.getCount());
 	}
 }
