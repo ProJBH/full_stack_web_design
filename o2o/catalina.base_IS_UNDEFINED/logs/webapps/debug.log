@@ -1,3 +1,15 @@
 2023-11-16 14:15:40.641 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.region_id, a.region_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_region a, tb_shop_category sc WHERE s.region_id=a.region_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
 2023-11-16 14:15:40.667 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - ==> Parameters: 1(Long)
 2023-11-16 14:15:40.713 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - <==      Total: 1
+2023-11-16 14:59:58.675 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.region_id, a.region_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_region a, tb_shop_category sc WHERE s.region_id=a.region_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2023-11-16 14:59:58.700 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - ==> Parameters: 1(Long)
+2023-11-16 14:59:58.718 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - <==      Total: 1
+2023-11-16 14:59:58.723 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current relativeAddr is :/upload/images/item/shop/1/2023111614595889841.jpg
+2023-11-16 14:59:58.723 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current complete addr is :/Users/projbh/Github_projects/full_stack_web_design/image/upload/images/item/shop/1/2023111614595889841.jpg
+2023-11-16 14:59:58.723 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - basePath is :/Users/projbh/Github_projects/full_stack_web_design/full_stack_web_design/o2o/target/test-classes/
+2023-11-16 14:59:59.191 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_img=?, last_edit_time=? where shop_id=? 
+2023-11-16 14:59:59.192 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.updateShop - ==> Parameters: Updated shop name(String), /upload/images/item/shop/1/2023111614595889841.jpg(String), 2023-11-16 14:59:59.181(Timestamp), 1(Long)
+2023-11-16 14:59:59.201 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.updateShop - <==    Updates: 1
+2023-11-16 14:59:59.202 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.region_id, a.region_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_region a, tb_shop_category sc WHERE s.region_id=a.region_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2023-11-16 14:59:59.202 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - ==> Parameters: 1(Long)
+2023-11-16 14:59:59.203 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - <==      Total: 1
