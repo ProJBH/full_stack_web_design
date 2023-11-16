@@ -42,7 +42,6 @@ public class ShopManagementController {
 	@Autowired
 	private RegionService regionService;
 	
-	
 	@RequestMapping(value = "/getshopinitinfo", method = RequestMethod.GET)
 	@ResponseBody
 	private Map<String, Object> getShopInitInfo() {
@@ -126,6 +125,88 @@ public class ShopManagementController {
 		} else {
 			modelMap.put("success", false);
 			modelMap.put("errMsg", "Please enter shop information");
+			return modelMap;
+		}
+	}
+	
+	@RequestMapping(value = "/getshopbyid", method = RequestMethod.GET)
+	@ResponseBody
+	private Map<String, Object> getShopById(HttpServletRequest request) {
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		Long shopId = HttpServletRequestUtil.getLong(request, "shopid");
+		if (shopId > -1) {
+			try {
+				Shop shop = shopService.getByShopId(shopId);
+				List<Region> regionList = regionService.getRegionList();
+				modelMap.put("shop", shop);
+				modelMap.put("regionList", regionList);
+				modelMap.put("success", true);
+			} catch (Exception e) {
+				modelMap.put("success", false);
+				modelMap.put("errMsg", e.toString());
+			}
+		} else {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", "empty shopId");
+		}
+		return modelMap;
+	}
+	
+	@RequestMapping(value = "/modifyshop", method = RequestMethod.POST)
+	@ResponseBody
+	private Map<String, Object> modifyShop(HttpServletRequest request) {
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		if (!CodeUtil.checkVerifyCode(request)) {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", "Wrong verification code");
+			return modelMap;
+		}
+		// 1. Receive and convert corresponding parameters, 
+		//    including shop info and image information
+		String shopStr = HttpServletRequestUtil.getString(request, "shopStr");
+		ObjectMapper mapper = new ObjectMapper();
+		Shop shop = null;
+		try {
+			shop = mapper.readValue(shopStr, Shop.class);
+		} catch (Exception e) {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", e.getMessage());
+			return modelMap;
+		}
+		CommonsMultipartFile shopImg = null;
+		CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver(
+				request.getSession().getServletContext());
+		if (commonsMultipartResolver.isMultipart(request)) {
+			MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+			shopImg = (CommonsMultipartFile) multipartHttpServletRequest.getFile("shopImg");
+		}
+		// 2.modify shop info
+		if (shop != null && shop.getShopId() != null) {
+			ShopExecution se;
+			try {
+				if (shopImg == null) {
+					se = shopService.modifyShop(shop, null);
+				} else {
+					ImageHolder imageHolder = new ImageHolder(shopImg.getOriginalFilename(), shopImg.getInputStream());
+					se = shopService.modifyShop(shop, imageHolder);
+				}
+				if (se.getState() == ShopStateEnum.SUCCESS.getState()) {
+					modelMap.put("success", true);
+				} else {
+					modelMap.put("success", false);
+					modelMap.put("errMsg", se.getStateInfo());
+				}
+			} catch (ShopOperationException e) {
+				modelMap.put("success", false);
+				modelMap.put("errMsg", e.getMessage());
+			} catch (IOException e) {
+				modelMap.put("success", false);
+				modelMap.put("errMsg", e.getMessage());
+			}
+			return modelMap;
+		} else {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", "Please input shop Id");
 			return modelMap;
 		}
 	}
