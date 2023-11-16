@@ -1,6 +1,7 @@
 package com.bohuajia.o2o.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import com.bohuajia.o2o.enums.ShopStateEnum;
 import com.bohuajia.o2o.exceptions.ShopOperationException;
 import com.bohuajia.o2o.service.ShopService;
 import com.bohuajia.o2o.util.ImageUtil;
+import com.bohuajia.o2o.util.PageCalculator;
 import com.bohuajia.o2o.util.PathUtil;
 
 @Service
@@ -67,8 +69,20 @@ public class ShopServiceImpl implements ShopService{
 
 	@Override
 	public ShopExecution getShopList(Shop shopCondition, int pageIndex, int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+		//Convert page code to line code
+		int rowIndex = PageCalculator.calculateRowIndex(pageIndex, pageSize);
+		//Depends on query condition, call DAO layer and return related shop list
+		List<Shop> shopList = shopDao.queryShopList(shopCondition, rowIndex, pageSize);
+		//Depends on the same condition, return the number of shop
+		int count = shopDao.queryShopCount(shopCondition);
+		ShopExecution se = new ShopExecution();
+		if (shopList != null) {
+			se.setShopList(shopList);
+			se.setCount(count);
+		} else {
+			se.setState(ShopStateEnum.INNER_ERROR.getState());
+		}
+		return se;
 	}
 
 	@Override
