@@ -9,3 +9,4 @@ Sequence Flow2:
 	2. Return shopID
 	3. Generate image folder and store images though shopID
 	4. Update image folder address back to database
+Sequence Flow3: Service(interface)->Service.impl->unitest
