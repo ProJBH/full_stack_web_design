@@ -77,19 +77,128 @@
 		s.last_edit_time,
 		s.enable_status,
 		s.advice,
-		a.region_id,
-		a.region_name,
+		r.region_id,
+		r.region_name,
 		sc.shop_category_id,
 		sc.shop_category_name
 		FROM
 		tb_shop s,
-		tb_region a,
+		tb_region r,
 		tb_shop_category sc
 		WHERE
-		s.region_id=a.region_id
+		s.region_id=r.region_id
 		AND
 		s.shop_category_id = sc.shop_category_id
 		AND
 		s.shop_id = #{shopId}
+	</select>
+	
+	<select id="queryShopList" resultMap="shopMap">
+		SELECT
+		s.shop_id,
+		s.shop_name,
+		s.shop_desc,
+		s.shop_addr,
+		s.phone,
+		s.shop_img,
+		s.priority,
+		s.create_time,
+		s.last_edit_time,
+		s.enable_status,
+		s.advice,
+		r.region_id,
+		r.region_name,
+		sc.shop_category_id,
+		sc.shop_category_name
+		FROM
+		tb_shop s,
+		tb_region r,
+		tb_shop_category sc
+		<where>
+			<if
+				test="shopCondition.shopCategory != null and 
+			shopCondition.shopCategory.shopCategoryId != null">
+				and s.shop_category_id =
+				#{shopCondition.shopCategory.shopCategoryId}
+			</if>
+			<if
+				test="shopCondition.shopCategory != null 
+			and shopCondition.shopCategory.parent!=null 
+			and shopCondition.shopCategory.parent.shopCategoryId !=null">
+				and s.shop_category_id in (select shop_category_id from
+				tb_shop_category
+				WHERE parent_id =
+				#{shopCondition.shopCategory.parent.shopCategoryId})
+			</if>
+			<if
+				test="shopCondition.region != null and 
+			shopCondition.region.regionId != null">
+				and s.region_id =
+				#{shopCondition.region.regionId}
+			</if>
+			<if test="shopCondition.shopName != null">
+				and s.shop_name like '%${shopCondition.shopName}%'
+			</if>
+			<if test="shopCondition.enableStatus != null">
+				and s.enable_status = #{shopCondition.enableStatus}
+			</if>
+			<if
+				test="shopCondition.owner != null and shopCondition.owner.userId != null">
+				and s.owner_id = #{shopCondition.owner.userId}
+			</if>
+			AND
+			s.region_id=r.region_id
+			AND
+			s.shop_category_id = sc.shop_category_id
+		</where>
+		ORDER BY
+		s.priority DESC
+		LIMIT #{rowIndex},#{pageSize};
+	</select>
+	
+	<select id="queryShopCount" resultType="int">
+		SELECT
+		count(1)
+		FROM
+		tb_shop s,
+		tb_region r,
+		tb_shop_category sc
+		<where>
+			<if
+				test="shopCondition.shopCategory != null and 
+			shopCondition.shopCategory.shopCategoryId != null">
+				and s.shop_category_id =
+				#{shopCondition.shopCategory.shopCategoryId}
+			</if>
+			<if
+				test="shopCondition.shopCategory != null 
+			and shopCondition.shopCategory.parent!=null 
+			and shopCondition.shopCategory.parent.shopCategoryId !=null">
+				and s.shop_category_id in (select shop_category_id from
+				tb_shop_category
+				WHERE parent_id =
+				#{shopCondition.shopCategory.parent.shopCategoryId})
+			</if>
+			<if
+				test="shopCondition.region != null and 
+			shopCondition.region.regionId != null">
+				and s.region_id =
+				#{shopCondition.region.regionId}
+			</if>
+			<if test="shopCondition.shopName != null">
+				and s.shop_name like '%${shopCondition.shopName}%'
+			</if>
+			<if test="shopCondition.enableStatus != null">
+				and s.enable_status = #{shopCondition.enableStatus}
+			</if>
+			<if
+				test="shopCondition.owner != null and shopCondition.owner.userId != null">
+				and s.owner_id = #{shopCondition.owner.userId}
+			</if>
+			AND
+			s.region_id=r.region_id
+			AND
+			s.shop_category_id = sc.shop_category_id
+		</where>
 	</select>
 </mapper>
