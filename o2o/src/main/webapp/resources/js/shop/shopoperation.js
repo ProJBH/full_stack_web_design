@@ -6,7 +6,7 @@
 // When loading .js file, call function()
 $(function() {
 	// Get the value of shopId parameter from URL
-	var shopId = getQueryString('shopid');
+	var shopId = getQueryString('shopId');
 	// Since shop registration and editing use the same page,
 	// This identifier is used to indicate whether this is an add or edit operation.
 	var isEdit = shopId ? true : false;
@@ -37,13 +37,13 @@ $(function() {
 				$('#shop-desc').val(shop.shopDesc);
 				// Select the original shop category value for the shop category
 				var shopCategory = '<option data-id="'
-						+ shop.shopCategory.shopCategoryId + '" selected>'
-						+ shop.shopCategory.shopCategoryName + '</option>';
+					+ shop.shopCategory.shopCategoryId + '" selected>'
+					+ shop.shopCategory.shopCategoryName + '</option>';
 				var tempRegionHtml = '';
 				// init region list
 				data.regionList.map(function(item, index) {
 					tempRegionHtml += '<option data-id="' + item.regionId + '">'
-							+ item.regionName + '</option>';
+						+ item.regionName + '</option>';
 				});
 				$('#shop-category').html(shopCategory);
 				// cant select shop category
@@ -51,7 +51,7 @@ $(function() {
 				$('#region').html(tempRegionHtml);
 				// Select the original region as default 
 				$("#region option[data-id='" + shop.region.regionId + "']").attr(
-						"selected", "selected");
+					"selected", "selected");
 			}
 		});
 	}
@@ -63,18 +63,18 @@ $(function() {
 				var tempRegionHtml = '';
 				data.shopCategoryList.map(function(item, index) {
 					tempHtml += '<option data-id="' + item.shopCategoryId
-							+ '">' + item.shopCategoryName + '</option>';
+						+ '">' + item.shopCategoryName + '</option>';
 				});
 				data.regionList.map(function(item, index) {
 					tempRegionHtml += '<option data-id="' + item.regionId + '">'
-							+ item.regionName + '</option>';
+						+ item.regionName + '</option>';
 				});
 				$('#shop-category').html(tempHtml);
 				$('#region').html(tempRegionHtml);
 			}
 		});
 	}
-	
+
 	// The event response of the submit button provides different responses to shop registration and editing operations.
 	$('#submit').click(function() {
 		// create shop obj
@@ -90,13 +90,13 @@ $(function() {
 		shop.shopDesc = $('#shop-desc').val();
 		// Select the selected shop category
 		shop.shopCategory = {
-			shopCategoryId : $('#shop-category').find('option').not(function() {
+			shopCategoryId: $('#shop-category').find('option').not(function() {
 				return !this.selected;
 			}).data('id')
 		};
 		// Select the selected region information
 		shop.region = {
-			regionId : $('#region').find('option').not(function() {
+			regionId: $('#region').find('option').not(function() {
 				return !this.selected;
 			}).data('id')
 		};
@@ -117,13 +117,13 @@ $(function() {
 		formData.append('verifyCodeActual', verifyCodeActual);
 		// Submit data to backend processing related operations
 		$.ajax({
-			url : (isEdit ? editShopUrl : registerShopUrl),
-			type : 'POST',
-			data : formData,
-			contentType : false,
-			processData : false,
-			cache : false,
-			success : function(data) {
+			url: (isEdit ? editShopUrl : registerShopUrl),
+			type: 'POST',
+			data: formData,
+			contentType: false,
+			processData: false,
+			cache: false,
+			success: function(data) {
 				if (data.success) {
 					$.toast('Submitted successfully！');
 					if (!isEdit) {
