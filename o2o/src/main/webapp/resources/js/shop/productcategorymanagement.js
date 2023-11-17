@@ -48,6 +48,8 @@ $(function() {
 			var tempObj = {};
 			tempObj.productCategoryName = $(item).find('.category').val();
 			tempObj.priority = $(item).find('.priority').val();
+			const now = new Date();
+			tempObj.createTime = now;
 			if (tempObj.productCategoryName && tempObj.priority) {
 				productCategoryList.push(tempObj);
 			}
