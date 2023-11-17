@@ -10,3 +10,6 @@
 2023-11-17 16:43:34.443 [main] DEBUG c.b.o.d.P.queryProductCategoryList - ==>  Preparing: SELECT product_category_id, product_category_name, priority, create_time, shop_id FROM tb_product_category WHERE shop_id = ? ORDER BY priority DESC 
 2023-11-17 16:43:34.470 [main] DEBUG c.b.o.d.P.queryProductCategoryList - ==> Parameters: 28(Long)
 2023-11-17 16:43:34.494 [main] DEBUG c.b.o.d.P.queryProductCategoryList - <==      Total: 8
+2023-11-17 17:53:44.596 [main] DEBUG c.b.o.d.P.batchInsertProductCategory - ==>  Preparing: INSERT INTO tb_product_category(product_category_name, priority, create_time, shop_id) VALUES ( ?, ?, ?, ? ) , ( ?, ?, ?, ? ) 
+2023-11-17 17:53:44.618 [main] DEBUG c.b.o.d.P.batchInsertProductCategory - ==> Parameters: Product category 1(String), 1(Integer), 2023-11-17 17:53:44.226(Timestamp), 1(Long), Product category 2(String), 2(Integer), 2023-11-17 17:53:44.226(Timestamp), 1(Long)
+2023-11-17 17:53:44.639 [main] DEBUG c.b.o.d.P.batchInsertProductCategory - <==    Updates: 2
