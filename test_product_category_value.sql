@@ -1,3 +1,4 @@
+use o2o;
 INSERT INTO `tb_product_category` VALUES 
 (1, 'Glasses Category', 1, NULL, 29),
 (2, 'Category Without Glasses', 2, NULL, 29),
