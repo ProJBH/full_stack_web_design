@@ -9,7 +9,7 @@ $(function() {
 				shopId = data.shopId;
 			}
 			$('#shopInfo')
-					.attr('href', '/o2o/shopadmin/shopoperation?shopId=' + shopId);
+				.attr('href', '/o2o/shopadmin/shopoperation?shopId=' + shopId);
 		}
 	});
 });
