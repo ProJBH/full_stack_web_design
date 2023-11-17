@@ -13,4 +13,10 @@ public class ShopAdminController {
 		// Line 22 in spring-web.xml set prefix and suffix already
 		return "shop/shopoperation";
 	}
+	
+	@RequestMapping(value = "/shoplist")
+	public String shopList() {
+		// Redirect to shop list page
+		return "shop/shoplist";
+	}
 }
