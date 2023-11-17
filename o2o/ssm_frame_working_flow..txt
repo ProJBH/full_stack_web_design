@@ -10,4 +10,4 @@ Sequence Flow2:
 	3. Generate image folder and store images though shopID
 	4. Update image folder address back to database
 Sequence Flow3: Service(interface)->Service.impl->unitest
-Sequence Flow4: Controller
+Sequence Flow4: Controller(web->xxxAdmin)
