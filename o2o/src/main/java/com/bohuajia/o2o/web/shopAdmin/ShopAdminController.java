@@ -25,4 +25,10 @@ public class ShopAdminController {
 		// Redirect to shop management page
 		return "shop/shopmanagement";
 	}
+	
+	@RequestMapping(value = "/productcategorymanagement", method = RequestMethod.GET)
+	private String productCategoryManage() {
+		// Redirect to product category management page
+		return "shop/productcategorymanagement";
+	}
 }
