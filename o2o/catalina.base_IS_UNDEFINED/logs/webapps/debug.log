@@ -1,54 +1,12 @@
-2023-11-16 14:15:40.641 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.region_id, a.region_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_region a, tb_shop_category sc WHERE s.region_id=a.region_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
-2023-11-16 14:15:40.667 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - ==> Parameters: 1(Long)
-2023-11-16 14:15:40.713 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - <==      Total: 1
-2023-11-16 14:59:58.675 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.region_id, a.region_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_region a, tb_shop_category sc WHERE s.region_id=a.region_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
-2023-11-16 14:59:58.700 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - ==> Parameters: 1(Long)
-2023-11-16 14:59:58.718 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - <==      Total: 1
-2023-11-16 14:59:58.723 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current relativeAddr is :/upload/images/item/shop/1/2023111614595889841.jpg
-2023-11-16 14:59:58.723 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current complete addr is :/Users/projbh/Github_projects/full_stack_web_design/image/upload/images/item/shop/1/2023111614595889841.jpg
-2023-11-16 14:59:58.723 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - basePath is :/Users/projbh/Github_projects/full_stack_web_design/full_stack_web_design/o2o/target/test-classes/
-2023-11-16 14:59:59.191 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_img=?, last_edit_time=? where shop_id=? 
-2023-11-16 14:59:59.192 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.updateShop - ==> Parameters: Updated shop name(String), /upload/images/item/shop/1/2023111614595889841.jpg(String), 2023-11-16 14:59:59.181(Timestamp), 1(Long)
-2023-11-16 14:59:59.201 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.updateShop - <==    Updates: 1
-2023-11-16 14:59:59.202 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.region_id, a.region_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_region a, tb_shop_category sc WHERE s.region_id=a.region_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
-2023-11-16 14:59:59.202 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - ==> Parameters: 1(Long)
-2023-11-16 14:59:59.203 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryByShopId - <==      Total: 1
-2023-11-16 18:38:47.460 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.region_id, a.region_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_region a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category WHERE parent_id = ?) AND s.region_id=a.region_id AND s.shop_category_id = sc.shop_category_id ORDER BY s.priority DESC LIMIT ?,?; 
-2023-11-16 18:38:47.483 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - ==> Parameters: 1(Long), 0(Integer), 6(Integer)
-2023-11-16 18:38:47.516 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - <==      Total: 0
-2023-11-16 18:38:47.520 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - ==>  Preparing: SELECT count(1) FROM tb_shop s, tb_region a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category WHERE parent_id = ?) AND s.region_id=a.region_id AND s.shop_category_id = sc.shop_category_id 
-2023-11-16 18:38:47.520 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - ==> Parameters: 1(Long)
-2023-11-16 18:38:47.525 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - <==      Total: 1
-2023-11-16 18:40:10.539 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.region_id, a.region_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_region a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category WHERE parent_id = ?) AND s.region_id=a.region_id AND s.shop_category_id = sc.shop_category_id ORDER BY s.priority DESC LIMIT ?,?; 
-2023-11-16 18:40:10.564 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - ==> Parameters: 39(Long), 0(Integer), 6(Integer)
-2023-11-16 18:40:10.582 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - <==      Total: 0
-2023-11-16 18:40:10.586 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - ==>  Preparing: SELECT count(1) FROM tb_shop s, tb_region a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category WHERE parent_id = ?) AND s.region_id=a.region_id AND s.shop_category_id = sc.shop_category_id 
-2023-11-16 18:40:10.586 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - ==> Parameters: 39(Long)
-2023-11-16 18:40:10.589 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - <==      Total: 1
-2023-11-16 18:49:40.795 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.region_id, a.region_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_region a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category WHERE parent_id = ?) and s.owner_id = ? AND s.region_id=a.region_id AND s.shop_category_id = sc.shop_category_id ORDER BY s.priority DESC LIMIT ?,?; 
-2023-11-16 18:49:40.814 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - ==> Parameters: 1(Long), 1(Long), 0(Integer), 6(Integer)
-2023-11-16 18:49:40.834 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - <==      Total: 0
-2023-11-16 18:49:40.838 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - ==>  Preparing: SELECT count(1) FROM tb_shop s, tb_region a, tb_shop_category sc WHERE s.shop_category_id in (select shop_category_id from tb_shop_category WHERE parent_id = ?) and s.owner_id = ? AND s.region_id=a.region_id AND s.shop_category_id = sc.shop_category_id 
-2023-11-16 18:49:40.839 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - ==> Parameters: 1(Long), 1(Long)
-2023-11-16 18:49:40.841 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - <==      Total: 1
-2023-11-16 18:56:45.841 [main] DEBUG c.b.o2o.dao.ShopCategoryDAO.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id is not null ORDER BY priority DESC 
-2023-11-16 18:56:45.861 [main] DEBUG c.b.o2o.dao.ShopCategoryDAO.queryShopCategory - ==> Parameters: 
-2023-11-16 18:56:45.885 [main] DEBUG c.b.o2o.dao.ShopCategoryDAO.queryShopCategory - <==      Total: 1
-2023-11-16 22:14:28.403 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, r.region_id, r.region_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_region r, tb_shop_category sc WHERE s.shop_category_id = ? AND s.region_id=r.region_id AND s.shop_category_id = sc.shop_category_id ORDER BY s.priority DESC LIMIT ?,?; 
-2023-11-16 22:14:28.427 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - ==> Parameters: 3(Long), 2(Integer), 2(Integer)
-2023-11-16 22:14:28.452 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - <==      Total: 0
-2023-11-16 22:14:28.456 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - ==>  Preparing: SELECT count(1) FROM tb_shop s, tb_region r, tb_shop_category sc WHERE s.shop_category_id = ? AND s.region_id=r.region_id AND s.shop_category_id = sc.shop_category_id 
-2023-11-16 22:14:28.457 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - ==> Parameters: 3(Long)
-2023-11-16 22:14:28.459 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - <==      Total: 1
-2023-11-16 22:16:57.649 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, r.region_id, r.region_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_region r, tb_shop_category sc WHERE s.shop_category_id = ? AND s.region_id=r.region_id AND s.shop_category_id = sc.shop_category_id ORDER BY s.priority DESC LIMIT ?,?; 
-2023-11-16 22:16:57.672 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - ==> Parameters: 12(Long), 2(Integer), 2(Integer)
-2023-11-16 22:16:57.691 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - <==      Total: 2
-2023-11-16 22:16:57.695 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - ==>  Preparing: SELECT count(1) FROM tb_shop s, tb_region r, tb_shop_category sc WHERE s.shop_category_id = ? AND s.region_id=r.region_id AND s.shop_category_id = sc.shop_category_id 
-2023-11-16 22:16:57.696 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - ==> Parameters: 12(Long)
-2023-11-16 22:16:57.698 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - <==      Total: 1
-2023-11-16 22:39:47.439 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, r.region_id, r.region_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_region r, tb_shop_category sc WHERE s.shop_category_id = ? AND s.region_id=r.region_id AND s.shop_category_id = sc.shop_category_id ORDER BY s.priority DESC LIMIT ?,?; 
-2023-11-16 22:39:47.462 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - ==> Parameters: 12(Long), 2(Integer), 2(Integer)
-2023-11-16 22:39:47.491 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopList - <==      Total: 2
-2023-11-16 22:39:47.495 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - ==>  Preparing: SELECT count(1) FROM tb_shop s, tb_region r, tb_shop_category sc WHERE s.shop_category_id = ? AND s.region_id=r.region_id AND s.shop_category_id = sc.shop_category_id 
-2023-11-16 22:39:47.496 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - ==> Parameters: 12(Long)
-2023-11-16 22:39:47.498 [main] DEBUG com.bohuajia.o2o.dao.ShopDAO.queryShopCount - <==      Total: 1
+2023-11-17 16:32:09.296 [main] DEBUG c.b.o.d.P.queryProductCategoryList - ==>  Preparing: SELECT product_category_id, product_category_name, priority, create_time, shop_id FROM tb_product_category WHERE shop_id = ? ORDER BY priority DESC 
+2023-11-17 16:32:09.327 [main] DEBUG c.b.o.d.P.queryProductCategoryList - ==> Parameters: 1(Long)
+2023-11-17 16:32:09.362 [main] DEBUG c.b.o.d.P.queryProductCategoryList - <==      Total: 0
+2023-11-17 16:32:50.296 [main] DEBUG c.b.o.d.P.queryProductCategoryList - ==>  Preparing: SELECT product_category_id, product_category_name, priority, create_time, shop_id FROM tb_product_category WHERE shop_id = ? ORDER BY priority DESC 
+2023-11-17 16:32:50.320 [main] DEBUG c.b.o.d.P.queryProductCategoryList - ==> Parameters: 32(Long)
+2023-11-17 16:32:50.343 [main] DEBUG c.b.o.d.P.queryProductCategoryList - <==      Total: 0
+2023-11-17 16:42:44.758 [main] DEBUG c.b.o.d.P.queryProductCategoryList - ==>  Preparing: SELECT product_category_id, product_category_name, priority, create_time, shop_id FROM tb_product_category WHERE shop_id = ? ORDER BY priority DESC 
+2023-11-17 16:42:44.782 [main] DEBUG c.b.o.d.P.queryProductCategoryList - ==> Parameters: 32(Long)
+2023-11-17 16:42:44.803 [main] DEBUG c.b.o.d.P.queryProductCategoryList - <==      Total: 0
+2023-11-17 16:43:34.443 [main] DEBUG c.b.o.d.P.queryProductCategoryList - ==>  Preparing: SELECT product_category_id, product_category_name, priority, create_time, shop_id FROM tb_product_category WHERE shop_id = ? ORDER BY priority DESC 
+2023-11-17 16:43:34.470 [main] DEBUG c.b.o.d.P.queryProductCategoryList - ==> Parameters: 28(Long)
+2023-11-17 16:43:34.494 [main] DEBUG c.b.o.d.P.queryProductCategoryList - <==      Total: 8
