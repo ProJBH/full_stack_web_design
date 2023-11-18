@@ -17,7 +17,10 @@ import com.bohuajia.o2o.service.ProductCategoryService;
 public class ProductCategoryServiceImpl implements ProductCategoryService {
 	@Autowired
 	private ProductCategoryDao productCategoryDao;
-	
+
+	//@Autowired
+	//private ProductDAO productDao;
+
 	@Override
 	public List<ProductCategory> getProductCategoryList(long shopId) {
 		return productCategoryDao.queryProductCategoryList(shopId);
@@ -41,6 +44,32 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 			}
 		} else {
 			return new ProductCategoryExecution(ProductCategoryStateEnum.EMPTY_LIST);
+		}
+	}
+
+	@Override
+	@Transactional
+	public ProductCategoryExecution deleteProductCategory(long productCategoryId, long shopId)
+			throws ProductCategoryOperationException {
+		// Disassociate the product in tb_product from the productegoryId
+		//try {
+		//	int effectedNum = productDao.updateProductCategoryToNull(productCategoryId);
+		//	if (effectedNum < 0) {
+		//		throw new ProductCategoryOperationException("Product category update failed");
+		//	}
+		//} catch (Exception e) {
+		//	throw new ProductCategoryOperationException("deleteProductCategory error: " + e.getMessage());
+		//}
+		// delete current productCategory
+		try {
+			int effectedNum = productCategoryDao.deleteProductCategory(productCategoryId, shopId);
+			if (effectedNum <= 0) {
+				throw new ProductCategoryOperationException("Product category delete failed");
+			} else {
+				return new ProductCategoryExecution(ProductCategoryStateEnum.SUCCESS);
+			}
+		} catch (Exception e) {
+			throw new ProductCategoryOperationException("deleteProductCategory error:" + e.getMessage());
 		}
 	}
 }

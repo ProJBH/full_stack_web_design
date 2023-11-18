@@ -23,4 +23,16 @@ public interface ProductCategoryService {
 	 */
 	ProductCategoryExecution batchAddProductCategory(List<ProductCategory> productCategoryList)
 			throws ProductCategoryOperationException;
+
+	/**
+	 * Set the category id in the products under this category to empty, 
+	 * and then delete the product category
+	 * 
+	 * @param productCategoryId
+	 * @param shopId
+	 * @return
+	 * @throws RuntimeException
+	 */
+	ProductCategoryExecution deleteProductCategory(long productCategoryId, long shopId)
+			throws ProductCategoryOperationException;
 }
