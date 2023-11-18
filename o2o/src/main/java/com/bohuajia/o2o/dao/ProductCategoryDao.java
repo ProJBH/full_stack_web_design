@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.bohuajia.o2o.entity.ProductCategory;
 
-public interface ProductCategoryDao {
+public interface ProductCategoryDAO {
 	/**
 	 * Query product category by shop id
 	 * 
