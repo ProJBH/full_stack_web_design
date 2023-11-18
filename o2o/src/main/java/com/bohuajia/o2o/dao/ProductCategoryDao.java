@@ -1,6 +1,9 @@
 package com.bohuajia.o2o.dao;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.bohuajia.o2o.entity.ProductCategory;
 
 public interface ProductCategoryDao {
@@ -19,4 +22,13 @@ public interface ProductCategoryDao {
 	 * @return
 	 */
 	int batchInsertProductCategory(List<ProductCategory> productCategoryList);
+
+	/**
+	 * Delete selected product category
+	 * 
+	 * @param productCategoryId
+	 * @param shopId
+	 * @return effectedNum
+	 */
+	int deleteProductCategory(@Param("productCategoryId") long productCategoryId, @Param("shopId") long shopId);
 }
