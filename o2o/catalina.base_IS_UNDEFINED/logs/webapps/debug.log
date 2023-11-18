@@ -160,3 +160,24 @@
 2023-11-18 15:16:24.080 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.deleteProduct - ==>  Preparing: DELETE FROM tb_product WHERE product_id = ? AND shop_id=? 
 2023-11-18 15:16:24.080 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.deleteProduct - ==> Parameters: 13(Long), 1(Long)
 2023-11-18 15:16:24.081 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.deleteProduct - <==    Updates: 1
+2023-11-18 16:58:50.470 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current relativeAddr is :/upload/images/item/shop/1/2023111816585074704.jpg
+2023-11-18 16:58:50.471 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current complete addr is :/Users/projbh/Github_projects/full_stack_web_design/image/upload/images/item/shop/1/2023111816585074704.jpg
+2023-11-18 16:58:50.471 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - basePath is :/Users/projbh/Github_projects/full_stack_web_design/full_stack_web_design/o2o/target/test-classes/
+2023-11-18 17:07:21.398 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current relativeAddr is :/upload/images/item/shop/1/2023111817072187969.jpg
+2023-11-18 17:07:21.398 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current complete addr is :/Users/projbh/Github_projects/full_stack_web_design/image/upload/images/item/shop/1/2023111817072187969.jpg
+2023-11-18 17:07:21.398 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - basePath is :/Users/projbh/Github_projects/full_stack_web_design/full_stack_web_design/o2o/target/test-classes/
+2023-11-18 17:07:21.764 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.insertProduct - ==>  Preparing: INSERT INTO tb_product(product_name,product_desc,img_addr, normal_price,promotion_price,priority,create_time, last_edit_time,enable_status,bonus_point,product_category_id, shop_id) VALUES (?,?,?, ?,?,?,?, ?,?,?,?, ?) 
+2023-11-18 17:07:21.786 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.insertProduct - ==> Parameters: test product 1(String), test product 1(String), /upload/images/item/shop/1/2023111817072187969.jpg(String), null, null, 20(Integer), 2023-11-18 17:07:21.397(Timestamp), 2023-11-18 17:07:21.397(Timestamp), 1(Integer), null, 1(Long), 1(Long)
+2023-11-18 17:08:16.253 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current relativeAddr is :/upload/images/item/shop/1/2023111817081646682.jpg
+2023-11-18 17:08:16.253 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current complete addr is :/Users/projbh/Github_projects/full_stack_web_design/image/upload/images/item/shop/1/2023111817081646682.jpg
+2023-11-18 17:08:16.253 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - basePath is :/Users/projbh/Github_projects/full_stack_web_design/full_stack_web_design/o2o/target/test-classes/
+2023-11-18 17:08:16.528 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.insertProduct - ==>  Preparing: INSERT INTO tb_product(product_name,product_desc,img_addr, normal_price,promotion_price,priority,create_time, last_edit_time,enable_status,bonus_point,product_category_id, shop_id) VALUES (?,?,?, ?,?,?,?, ?,?,?,?, ?) 
+2023-11-18 17:08:16.551 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.insertProduct - ==> Parameters: test product 1(String), test product 1(String), /upload/images/item/shop/1/2023111817081646682.jpg(String), null, null, 20(Integer), 2023-11-18 17:08:16.252(Timestamp), 2023-11-18 17:08:16.252(Timestamp), 1(Integer), 0(Integer), 1(Long), 1(Long)
+2023-11-18 17:08:16.560 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.insertProduct - <==    Updates: 1
+2023-11-18 17:08:16.570 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current relativeAddr is :/upload/images/item/shop/1/2023111817081692516.jpg
+2023-11-18 17:08:16.570 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current complete addr is :/Users/projbh/Github_projects/full_stack_web_design/image/upload/images/item/shop/1/2023111817081692516.jpg
+2023-11-18 17:08:16.597 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current relativeAddr is :/upload/images/item/shop/1/2023111817081651563.jpeg
+2023-11-18 17:08:16.597 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current complete addr is :/Users/projbh/Github_projects/full_stack_web_design/image/upload/images/item/shop/1/2023111817081651563.jpeg
+2023-11-18 17:08:16.632 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==>  Preparing: INSERT INTO tb_product_img(img_addr,img_desc,priority, create_time,product_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2023-11-18 17:08:16.633 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==> Parameters: /upload/images/item/shop/1/2023111817081692516.jpg(String), null, null, 2023-11-18 17:08:16.597(Timestamp), 16(Long), /upload/images/item/shop/1/2023111817081651563.jpeg(String), null, null, 2023-11-18 17:08:16.619(Timestamp), 16(Long)
+2023-11-18 17:08:16.637 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - <==    Updates: 2
