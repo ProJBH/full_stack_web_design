@@ -18,10 +18,9 @@ import com.bohuajia.o2o.entity.ProductCategory;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ProductCategoryDaoTest extends BaseTest {
 	@Autowired
-	private ProductCategoryDao productCategoryDao;
-
+	private ProductCategoryDAO productCategoryDao;
+	
 	@Test
-	@Ignore
 	public void testBQueryByShopId() throws Exception {
 		long shopId = 28;
 		List<ProductCategory> productCategoryList = productCategoryDao.queryProductCategoryList(shopId);
@@ -49,6 +48,7 @@ public class ProductCategoryDaoTest extends BaseTest {
 	}
 
 	@Test
+	@Ignore
 	public void testCDeleteProductCategory() throws Exception {
 		long shopId = 1;
 		List<ProductCategory> productCategoryList = productCategoryDao.queryProductCategoryList(shopId);
