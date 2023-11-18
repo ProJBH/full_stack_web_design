@@ -113,6 +113,39 @@ public class ImageUtil {
 		}
 	}
 	
+	/**
+	 * Process the detail image and return the relative value path of the newly generated image
+	 * 
+	 * @param thumbnail
+	 * @param targetAddr
+	 * @return
+	 */
+	public static String generateNormalImg(ImageHolder thumbnail, String targetAddr) {
+		// Get a unique random name
+		String realFileName = getRandomFileName();
+		// Get the file extension such as png, jpg, etc.
+		String extension = getFileExtension(thumbnail.getImageName());
+		// If the target path does not exist, it is automatically created
+		makeDirPath(targetAddr);
+		// Get the relative path of file storage (with file name)
+		String relativeAddr = targetAddr + realFileName + extension;
+		logger.debug("current relativeAddr is :" + relativeAddr);
+		// Get the target path to save the file to
+		File dest = new File(PathUtil.getImgBasePath() + relativeAddr);
+		logger.debug("current complete addr is :" + PathUtil.getImgBasePath() + relativeAddr);
+		// Call Thumbnails to generate pictures with watermarks
+		try {
+			Thumbnails.of(thumbnail.getImage()).size(337, 640)
+					.watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/watermark.jpg")), 0.25f)
+					.outputQuality(0.9f).toFile(dest);
+		} catch (IOException e) {
+			logger.error(e.toString());
+			throw new RuntimeException("Failed to create thumbnail image：" + e.toString());
+		}
+		// Returns the relative path address of the image
+		return relativeAddr;
+	}
+	
 	public static void main(String[] args) throws IOException {
 		Thumbnails.of(new File("/Users/projbh/Github_projects/full_stack_web_design/image/Baymax.jpeg")).size(200, 200)
 				.watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/watermark.jpg")), 0.25f)
