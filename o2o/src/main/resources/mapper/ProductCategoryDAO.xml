@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bohuajia.o2o.dao.ProductCategoryDao">
+<mapper namespace="com.bohuajia.o2o.dao.ProductCategoryDAO">
 	<!-- Purpose: Provide sql statement configuration for DAO interface methods -->
 	<select id="queryProductCategoryList"
 		resultType="com.bohuajia.o2o.entity.ProductCategory"
