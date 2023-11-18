@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bohuajia.o2o.dao.ProductCategoryDao;
+import com.bohuajia.o2o.dao.ProductCategoryDAO;
 import com.bohuajia.o2o.dto.ProductCategoryExecution;
 import com.bohuajia.o2o.entity.ProductCategory;
 import com.bohuajia.o2o.enums.ProductCategoryStateEnum;
@@ -16,7 +16,7 @@ import com.bohuajia.o2o.service.ProductCategoryService;
 @Service
 public class ProductCategoryServiceImpl implements ProductCategoryService {
 	@Autowired
-	private ProductCategoryDao productCategoryDao;
+	private ProductCategoryDAO productCategoryDao;
 
 	//@Autowired
 	//private ProductDAO productDao;
