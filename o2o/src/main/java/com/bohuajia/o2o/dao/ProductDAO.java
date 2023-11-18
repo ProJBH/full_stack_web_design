@@ -6,11 +6,10 @@ import org.apache.ibatis.annotations.Param;
 
 import com.bohuajia.o2o.entity.Product;
 
-public interface ProductDao {
+public interface ProductDAO {
 	/**
-	 * Query the product list and paginate it. 
-	 * The conditions that can be entered are: 
-	 * product name (fuzzy), product status, shop ID, product category
+	 * Query the product list and paginate it. The conditions that can be entered
+	 * are: product name (fuzzy), product status, shop ID, product category
 	 * 
 	 * @param productCondition
 	 * @param beginIndex
