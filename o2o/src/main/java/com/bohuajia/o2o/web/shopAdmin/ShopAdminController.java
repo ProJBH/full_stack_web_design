@@ -37,4 +37,10 @@ public class ShopAdminController {
 		// Forward to product add/edit page
 		return "shop/productoperation";
 	}
+	
+	@RequestMapping(value = "/productmanagement")
+	public String productManagement() {
+		// Forward to product management page
+		return "shop/productmanagement";
+	}
 }
