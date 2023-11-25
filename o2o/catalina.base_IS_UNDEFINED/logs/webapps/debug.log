@@ -139,3 +139,18 @@
 2023-11-25 15:22:15.936 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.updateProduct - ==>  Preparing: UPDATE tb_product SET product_name=?, product_desc=?, img_addr=?, last_edit_time=?, product_category_id=? WHERE product_id = ? AND shop_id=? 
 2023-11-25 15:22:15.937 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.updateProduct - ==> Parameters: formal product(String), formal product(String), /upload/images/item/shop/1/2023112515221560033.jpg(String), 2023-11-25 15:22:15.286(Timestamp), 1(Long), 16(Long), 1(Long)
 2023-11-25 15:22:15.939 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.updateProduct - <==    Updates: 1
+2023-11-25 16:11:52.784 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductList - ==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, bonus_point, product_category_id, shop_id FROM tb_product ORDER BY priority DESC LIMIT ?,?; 
+2023-11-25 16:11:52.805 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductList - ==> Parameters: 0(Integer), 3(Integer)
+2023-11-25 16:11:52.836 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductList - <==      Total: 2
+2023-11-25 16:11:52.841 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductCount - ==>  Preparing: SELECT count(1) FROM tb_product 
+2023-11-25 16:11:52.841 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductCount - ==> Parameters: 
+2023-11-25 16:11:52.850 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductCount - <==      Total: 1
+2023-11-25 16:11:52.852 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductList - ==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, bonus_point, product_category_id, shop_id FROM tb_product WHERE product_name like '%for%' ORDER BY priority DESC LIMIT ?,?; 
+2023-11-25 16:11:52.852 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductList - ==> Parameters: 0(Integer), 3(Integer)
+2023-11-25 16:11:52.855 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductList - <==      Total: 1
+2023-11-25 16:11:52.855 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductCount - ==>  Preparing: SELECT count(1) FROM tb_product WHERE product_name like '%for%' 
+2023-11-25 16:11:52.855 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductCount - ==> Parameters: 
+2023-11-25 16:11:52.857 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductCount - <==      Total: 1
+2023-11-25 17:15:44.850 [main] DEBUG c.b.o2o.dao.ProductDAO.updateProductCategoryToNull - ==>  Preparing: UPDATE tb_product SET product_category_id = null WHERE product_category_id = ? 
+2023-11-25 17:15:44.868 [main] DEBUG c.b.o2o.dao.ProductDAO.updateProductCategoryToNull - ==> Parameters: 2(Long)
+2023-11-25 17:15:44.889 [main] DEBUG c.b.o2o.dao.ProductDAO.updateProductCategoryToNull - <==    Updates: 1
