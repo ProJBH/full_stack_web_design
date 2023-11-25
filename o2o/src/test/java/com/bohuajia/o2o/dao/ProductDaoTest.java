@@ -96,9 +96,8 @@ public class ProductDaoTest extends BaseTest {
 	}
 
 	@Test
-	@Ignore
 	public void testCQueryProductByProductId() throws Exception {
-		long productId = 13;
+		long productId = 16;
 		// Initialize two product detail image instances as detail images for the product with productId 1
 		// Batch insert into product details chart
 		ProductImg productImg1 = new ProductImg();
@@ -126,14 +125,13 @@ public class ProductDaoTest extends BaseTest {
 	}
 
 	@Test
-	@Ignore
 	public void testDUpdateProduct() throws Exception {
 		Product product = new Product();
 		ProductCategory pc = new ProductCategory();
 		Shop shop = new Shop();
 		shop.setShopId(1L);
 		pc.setProductCategoryId(2L);
-		product.setProductId(13L);
+		product.setProductId(17L);
 		product.setShop(shop);
 		product.setProductName("Second Product");
 		product.setProductCategory(pc);
