@@ -96,3 +96,24 @@
 2023-11-25 14:59:30.203 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==>  Preparing: DELETE FROM tb_product_img WHERE product_id = ? 
 2023-11-25 14:59:30.203 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==> Parameters: 16(Long)
 2023-11-25 14:59:30.205 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - <==    Updates: 2
+2023-11-25 15:04:44.451 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==>  Preparing: INSERT INTO tb_product_img(img_addr,img_desc,priority, create_time,product_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2023-11-25 15:04:44.476 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==> Parameters: img 1(String), test img 1(String), 1(Integer), 2023-11-25 15:04:44.089(Timestamp), 16(Long), img 2(String), null, 1(Integer), 2023-11-25 15:04:44.089(Timestamp), 16(Long)
+2023-11-25 15:04:44.491 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - <==    Updates: 2
+2023-11-25 15:04:44.493 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductById - ==>  Preparing: SELECT p.product_id, p.product_name, p.product_desc, p.img_addr, p.normal_price, p.promotion_price, p.priority, p.create_time, p.last_edit_time, p.enable_status, p.bonus_point, p.product_category_id, p.shop_id, pm.product_img_id, pm.img_addr AS detail_img, pm.img_desc, pm.priority, pm.create_time FROM tb_product p LEFT JOIN tb_product_img pm ON p.product_id = pm.product_id WHERE p.product_id = ? ORDER BY pm.priority DESC 
+2023-11-25 15:04:44.493 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductById - ==> Parameters: 16(Long)
+2023-11-25 15:04:44.515 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductById - <==      Total: 2
+2023-11-25 15:04:44.518 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==>  Preparing: DELETE FROM tb_product_img WHERE product_id = ? 
+2023-11-25 15:04:44.518 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==> Parameters: 16(Long)
+2023-11-25 15:04:44.520 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - <==    Updates: 2
+2023-11-25 15:06:50.573 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==>  Preparing: INSERT INTO tb_product_img(img_addr,img_desc,priority, create_time,product_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2023-11-25 15:06:50.605 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==> Parameters: img 1(String), test img 1(String), 1(Integer), 2023-11-25 15:06:50.215(Timestamp), 16(Long), img 2(String), null, 1(Integer), 2023-11-25 15:06:50.215(Timestamp), 16(Long)
+2023-11-25 15:06:50.616 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - <==    Updates: 2
+2023-11-25 15:06:50.618 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductById - ==>  Preparing: SELECT p.product_id, p.product_name, p.product_desc, p.img_addr, p.normal_price, p.promotion_price, p.priority, p.create_time, p.last_edit_time, p.enable_status, p.bonus_point, p.product_category_id, p.shop_id, pm.product_img_id, pm.img_addr AS detail_img, pm.img_desc, pm.priority, pm.create_time FROM tb_product p LEFT JOIN tb_product_img pm ON p.product_id = pm.product_id WHERE p.product_id = ? ORDER BY pm.priority DESC 
+2023-11-25 15:06:50.618 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductById - ==> Parameters: 16(Long)
+2023-11-25 15:06:50.641 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductById - <==      Total: 2
+2023-11-25 15:06:50.644 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==>  Preparing: DELETE FROM tb_product_img WHERE product_id = ? 
+2023-11-25 15:06:50.645 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==> Parameters: 16(Long)
+2023-11-25 15:06:50.646 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - <==    Updates: 2
+2023-11-25 15:06:50.652 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.updateProduct - ==>  Preparing: UPDATE tb_product SET product_name=?, product_category_id=? WHERE product_id = ? AND shop_id=? 
+2023-11-25 15:06:50.652 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.updateProduct - ==> Parameters: Second Product(String), 2(Long), 17(Long), 1(Long)
+2023-11-25 15:06:50.655 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.updateProduct - <==    Updates: 1
