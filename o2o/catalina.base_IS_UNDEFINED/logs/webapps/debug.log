@@ -117,3 +117,25 @@
 2023-11-25 15:06:50.652 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.updateProduct - ==>  Preparing: UPDATE tb_product SET product_name=?, product_category_id=? WHERE product_id = ? AND shop_id=? 
 2023-11-25 15:06:50.652 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.updateProduct - ==> Parameters: Second Product(String), 2(Long), 17(Long), 1(Long)
 2023-11-25 15:06:50.655 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.updateProduct - <==    Updates: 1
+2023-11-25 15:22:15.300 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductById - ==>  Preparing: SELECT p.product_id, p.product_name, p.product_desc, p.img_addr, p.normal_price, p.promotion_price, p.priority, p.create_time, p.last_edit_time, p.enable_status, p.bonus_point, p.product_category_id, p.shop_id, pm.product_img_id, pm.img_addr AS detail_img, pm.img_desc, pm.priority, pm.create_time FROM tb_product p LEFT JOIN tb_product_img pm ON p.product_id = pm.product_id WHERE p.product_id = ? ORDER BY pm.priority DESC 
+2023-11-25 15:22:15.320 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductById - ==> Parameters: 16(Long)
+2023-11-25 15:22:15.353 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.queryProductById - <==      Total: 1
+2023-11-25 15:22:15.359 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current relativeAddr is :/upload/images/item/shop/1/2023112515221560033.jpg
+2023-11-25 15:22:15.359 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current complete addr is :/Users/projbh/Github_projects/full_stack_web_design/image/upload/images/item/shop/1/2023112515221560033.jpg
+2023-11-25 15:22:15.359 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - basePath is :/Users/projbh/Github_projects/full_stack_web_design/full_stack_web_design/o2o/target/test-classes/
+2023-11-25 15:22:15.835 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - ==>  Preparing: SELECT product_img_id, img_addr, img_desc, priority, create_time, product_id FROM tb_product_img WHERE product_id=? ORDER BY product_img_id ASC 
+2023-11-25 15:22:15.835 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - ==> Parameters: 16(Long)
+2023-11-25 15:22:15.836 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - <==      Total: 0
+2023-11-25 15:22:15.837 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==>  Preparing: DELETE FROM tb_product_img WHERE product_id = ? 
+2023-11-25 15:22:15.837 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==> Parameters: 16(Long)
+2023-11-25 15:22:15.840 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - <==    Updates: 0
+2023-11-25 15:22:15.840 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current relativeAddr is :/upload/images/item/shop/1/2023112515221520585.jpg
+2023-11-25 15:22:15.840 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current complete addr is :/Users/projbh/Github_projects/full_stack_web_design/image/upload/images/item/shop/1/2023112515221520585.jpg
+2023-11-25 15:22:15.879 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current relativeAddr is :/upload/images/item/shop/1/2023112515221552431.jpeg
+2023-11-25 15:22:15.879 [main] DEBUG com.bohuajia.o2o.util.ImageUtil - current complete addr is :/Users/projbh/Github_projects/full_stack_web_design/image/upload/images/item/shop/1/2023112515221552431.jpeg
+2023-11-25 15:22:15.926 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==>  Preparing: INSERT INTO tb_product_img(img_addr,img_desc,priority, create_time,product_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2023-11-25 15:22:15.927 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==> Parameters: /upload/images/item/shop/1/2023112515221520585.jpg(String), null, null, 2023-11-25 15:22:15.879(Timestamp), 16(Long), /upload/images/item/shop/1/2023112515221552431.jpeg(String), null, null, 2023-11-25 15:22:15.911(Timestamp), 16(Long)
+2023-11-25 15:22:15.932 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - <==    Updates: 2
+2023-11-25 15:22:15.936 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.updateProduct - ==>  Preparing: UPDATE tb_product SET product_name=?, product_desc=?, img_addr=?, last_edit_time=?, product_category_id=? WHERE product_id = ? AND shop_id=? 
+2023-11-25 15:22:15.937 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.updateProduct - ==> Parameters: formal product(String), formal product(String), /upload/images/item/shop/1/2023112515221560033.jpg(String), 2023-11-25 15:22:15.286(Timestamp), 1(Long), 16(Long), 1(Long)
+2023-11-25 15:22:15.939 [main] DEBUG com.bohuajia.o2o.dao.ProductDAO.updateProduct - <==    Updates: 1
