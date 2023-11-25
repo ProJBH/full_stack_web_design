@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bohuajia.o2o.dao.ProductCategoryDAO;
+import com.bohuajia.o2o.dao.ProductDAO;
 import com.bohuajia.o2o.dto.ProductCategoryExecution;
 import com.bohuajia.o2o.entity.ProductCategory;
 import com.bohuajia.o2o.enums.ProductCategoryStateEnum;
@@ -18,8 +19,8 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 	@Autowired
 	private ProductCategoryDAO productCategoryDao;
 
-	//@Autowired
-	//private ProductDAO productDao;
+	@Autowired
+	private ProductDAO productDao;
 
 	@Override
 	public List<ProductCategory> getProductCategoryList(long shopId) {
@@ -52,14 +53,14 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 	public ProductCategoryExecution deleteProductCategory(long productCategoryId, long shopId)
 			throws ProductCategoryOperationException {
 		// Disassociate the product in tb_product from the productegoryId
-		//try {
-		//	int effectedNum = productDao.updateProductCategoryToNull(productCategoryId);
-		//	if (effectedNum < 0) {
-		//		throw new ProductCategoryOperationException("Product category update failed");
-		//	}
-		//} catch (Exception e) {
-		//	throw new ProductCategoryOperationException("deleteProductCategory error: " + e.getMessage());
-		//}
+		try {
+			int effectedNum = productDao.updateProductCategoryToNull(productCategoryId);
+			if (effectedNum < 0) {
+				throw new ProductCategoryOperationException("Product category update failed");
+			}
+		} catch (Exception e) {
+			throw new ProductCategoryOperationException("deleteProductCategory error: " + e.getMessage());
+		}
 		// delete current productCategory
 		try {
 			int effectedNum = productCategoryDao.deleteProductCategory(productCategoryId, shopId);
