@@ -52,3 +52,47 @@
 2023-11-25 13:24:25.430 [main] DEBUG com.bohuajia.o2o.dao.RegionDAO.queryRegion - ==>  Preparing: SELECT region_id, region_name, priority, create_time, modified_time FROM tb_region ORDER BY priority DESC 
 2023-11-25 13:24:25.430 [main] DEBUG com.bohuajia.o2o.dao.RegionDAO.queryRegion - ==> Parameters: 
 2023-11-25 13:24:25.432 [main] DEBUG com.bohuajia.o2o.dao.RegionDAO.queryRegion - <==      Total: 2
+2023-11-25 14:56:25.337 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==>  Preparing: INSERT INTO tb_product_img(img_addr,img_desc,priority, create_time,product_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2023-11-25 14:56:25.361 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==> Parameters: IMG 1(String), TEST IMG 1(String), 1(Integer), 2023-11-25 14:56:24.913(Timestamp), 1(Long), IMG 2(String), null, 1(Integer), 2023-11-25 14:56:24.913(Timestamp), 1(Long)
+2023-11-25 14:56:25.412 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - ==>  Preparing: SELECT product_img_id, img_addr, img_desc, priority, create_time, product_id FROM tb_product_img WHERE product_id=? ORDER BY product_img_id ASC 
+2023-11-25 14:56:25.413 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - ==> Parameters: 1(Long)
+2023-11-25 14:56:25.432 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - <==      Total: 0
+2023-11-25 14:56:25.434 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==>  Preparing: DELETE FROM tb_product_img WHERE product_id = ? 
+2023-11-25 14:56:25.434 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==> Parameters: 1(Long)
+2023-11-25 14:56:25.437 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - <==    Updates: 0
+2023-11-25 14:57:46.744 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==>  Preparing: INSERT INTO tb_product_img(img_addr,img_desc,priority, create_time,product_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2023-11-25 14:57:46.763 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==> Parameters: IMG 1(String), TEST IMG 1(String), 1(Integer), 2023-11-25 14:57:46.365(Timestamp), 16(Long), IMG 2(String), null, 1(Integer), 2023-11-25 14:57:46.365(Timestamp), 16(Long)
+2023-11-25 14:57:46.786 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - <==    Updates: 2
+2023-11-25 14:57:46.790 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - ==>  Preparing: SELECT product_img_id, img_addr, img_desc, priority, create_time, product_id FROM tb_product_img WHERE product_id=? ORDER BY product_img_id ASC 
+2023-11-25 14:57:46.790 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - ==> Parameters: 1(Long)
+2023-11-25 14:57:46.807 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - <==      Total: 0
+2023-11-25 14:57:46.816 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==>  Preparing: DELETE FROM tb_product_img WHERE product_id = ? 
+2023-11-25 14:57:46.817 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==> Parameters: 1(Long)
+2023-11-25 14:57:46.817 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - <==    Updates: 0
+2023-11-25 14:58:27.412 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==>  Preparing: INSERT INTO tb_product_img(img_addr,img_desc,priority, create_time,product_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2023-11-25 14:58:27.438 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==> Parameters: IMG 1(String), TEST IMG 1(String), 1(Integer), 2023-11-25 14:58:27.076(Timestamp), 16(Long), IMG 2(String), null, 1(Integer), 2023-11-25 14:58:27.076(Timestamp), 16(Long)
+2023-11-25 14:58:27.442 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - <==    Updates: 2
+2023-11-25 14:58:27.450 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - ==>  Preparing: SELECT product_img_id, img_addr, img_desc, priority, create_time, product_id FROM tb_product_img WHERE product_id=? ORDER BY product_img_id ASC 
+2023-11-25 14:58:27.450 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - ==> Parameters: 16(Long)
+2023-11-25 14:58:27.469 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - <==      Total: 6
+2023-11-25 14:58:27.477 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==>  Preparing: DELETE FROM tb_product_img WHERE product_id = ? 
+2023-11-25 14:58:27.477 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==> Parameters: 16(Long)
+2023-11-25 14:58:27.480 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - <==    Updates: 6
+2023-11-25 14:59:11.642 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==>  Preparing: INSERT INTO tb_product_img(img_addr,img_desc,priority, create_time,product_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2023-11-25 14:59:11.666 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==> Parameters: IMG 1(String), TEST IMG 1(String), 1(Integer), 2023-11-25 14:59:11.296(Timestamp), 16(Long), IMG 2(String), null, 1(Integer), 2023-11-25 14:59:11.296(Timestamp), 16(Long)
+2023-11-25 14:59:11.671 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - <==    Updates: 2
+2023-11-25 14:59:11.678 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - ==>  Preparing: SELECT product_img_id, img_addr, img_desc, priority, create_time, product_id FROM tb_product_img WHERE product_id=? ORDER BY product_img_id ASC 
+2023-11-25 14:59:11.678 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - ==> Parameters: 16(Long)
+2023-11-25 14:59:11.694 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - <==      Total: 2
+2023-11-25 14:59:11.703 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==>  Preparing: DELETE FROM tb_product_img WHERE product_id = ? 
+2023-11-25 14:59:11.703 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==> Parameters: 16(Long)
+2023-11-25 14:59:11.704 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - <==    Updates: 2
+2023-11-25 14:59:30.148 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==>  Preparing: INSERT INTO tb_product_img(img_addr,img_desc,priority, create_time,product_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2023-11-25 14:59:30.171 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - ==> Parameters: IMG 1(String), TEST IMG 1(String), 1(Integer), 2023-11-25 14:59:29.821(Timestamp), 16(Long), IMG 2(String), null, 1(Integer), 2023-11-25 14:59:29.821(Timestamp), 16(Long)
+2023-11-25 14:59:30.176 [main] DEBUG c.b.o2o.dao.ProductImgDAO.batchInsertProductImg - <==    Updates: 2
+2023-11-25 14:59:30.182 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - ==>  Preparing: SELECT product_img_id, img_addr, img_desc, priority, create_time, product_id FROM tb_product_img WHERE product_id=? ORDER BY product_img_id ASC 
+2023-11-25 14:59:30.182 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - ==> Parameters: 16(Long)
+2023-11-25 14:59:30.199 [main] DEBUG c.b.o2o.dao.ProductImgDAO.queryProductImgList - <==      Total: 2
+2023-11-25 14:59:30.203 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==>  Preparing: DELETE FROM tb_product_img WHERE product_id = ? 
+2023-11-25 14:59:30.203 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - ==> Parameters: 16(Long)
+2023-11-25 14:59:30.205 [main] DEBUG c.b.o.d.ProductImgDAO.deleteProductImgByProductId - <==    Updates: 2
