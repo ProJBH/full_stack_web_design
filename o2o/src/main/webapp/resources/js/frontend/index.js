@@ -10,18 +10,18 @@ $(function() {
 			// Traverse the headline list and splice the carousel image group
 			headLineList.map(function(item, index) {
 				swiperHtml += '' + '<div class="swiper-slide img-wrap">'
-						+ '<a href="' + item.lineLink
-						+ '" external><img class="banner-img" src="'
-						+ getContextPath() + item.lineImg + '" alt="'
-						+ item.lineName + '"></a>' + '</div>';
+					+ '<a href="' + item.lineLink
+					+ '" external><img class="banner-img" src="'
+					+ item.lineImg + '" alt="'
+					+ item.lineName + '"></a>' + '</div>';
 			});
 			// Assign the carousel group to the front-end HTML control
 			$('.swiper-wrapper').html(swiperHtml);
 			// Set the carousel image rotation time to 3 seconds
 			$(".swiper-container").swiper({
-				autoplay : 3000,
+				autoplay: 3000,
 				// Whether to automatically stop autoplay when the user operates on the carousel image
-				autoplayDisableOnInteraction : false
+				autoplayDisableOnInteraction: false
 			});
 			// Get the list of major categories passed from the background
 			var shopCategoryList = data.shopCategoryList;
@@ -29,14 +29,14 @@ $(function() {
 			// Traverse the list of major categories and splice out two (col-50) categories in one row
 			shopCategoryList.map(function(item, index) {
 				categoryHtml += ''
-						+ '<div class="col-50 shop-classify" data-category='
-						+ item.shopCategoryId + '>' + '<div class="word">'
-						+ '<p class="shop-title">' + item.shopCategoryName
-						+ '</p>' + '<p class="shop-desc">'
-						+ item.shopCategoryDesc + '</p>' + '</div>'
-						+ '<div class="shop-classify-img-warp">'
-						+ '<img class="shop-img" src="' + getContextPath()
-						+ item.shopCategoryImg + '">' + '</div>' + '</div>';
+					+ '<div class="col-50 shop-classify" data-category='
+					+ item.shopCategoryId + '>' + '<div class="word">'
+					+ '<p class="shop-title">' + item.shopCategoryName
+					+ '</p>' + '<p class="shop-desc">'
+					+ item.shopCategoryDesc + '</p>' + '</div>'
+					+ '<div class="shop-classify-img-warp">'
+					+ '<img class="shop-img" src="'
+					+ item.shopCategoryImg + '">' + '</div>' + '</div>';
 			});
 			// Assign the spliced categories to the front-end HTML control for display
 			$('.row').html(categoryHtml);
