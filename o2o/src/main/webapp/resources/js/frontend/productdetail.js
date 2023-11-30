@@ -1,74 +1,72 @@
 $(function() {
-	// 从地址栏的URL里获取productId
+	// Get the productId from the URL in the address bar.
 	var productId = getQueryString('productId');
-	// 获取商品信息的URL
+	// URL for getting product information
 	var productUrl = '/o2o/frontend/listproductdetailpageinfo?productId='
-			+ productId;
-	// 访问后台获取该商品的信息并渲染
+		+ productId;
+	// Visit the backend to get information about the item and render it
 	$
-			.getJSON(
-					productUrl,
-					function(data) {
-						if (data.success) {
-							// 获取商品信息
-							var product = data.product;
-							// 给商品信息相关HTML控件赋值
-
-							// 商品缩略图
-							$('#product-img').attr('src',
-									getContextPath() + product.imgAddr);
-							// 商品更新时间
-							$('#product-time').text(
-									new Date(product.lastEditTime)
-											.Format("yyyy-MM-dd"));
-							if (product.point != undefined) {
-								$('#product-point').text(
-										'购买可得' + product.point + '积分');
-							}
-							// 商品名称
-							$('#product-name').text(product.productName);
-							// 商品简介
-							$('#product-desc').text(product.productDesc);
-							// 商品价格展示逻辑，主要判断原价现价是否为空 ，所有都为空则不显示价格栏目
-							if (product.normalPrice != undefined
-									&& product.promotionPrice != undefined) {
-								// 如果现价和原价都不为空则都展示，并且给原价加个删除符号
-								$('#price').show();
-								$('#normalPrice').html(
-										'<del>' + '￥' + product.normalPrice
-												+ '</del>');
-								$('#promotionPrice').text(
-										'￥' + product.promotionPrice);
-							} else if (product.normalPrice != undefined
-									&& product.promotionPrice == undefined) {
-								// 如果原价不为空而现价为空则只展示原价
-								$('#price').show();
-								$('#promotionPrice').text(
-										'￥' + product.normalPrice);
-							} else if (product.normalPrice == undefined
-									&& product.promotionPrice != undefined) {
-								// 如果现价不为空而原价为空则只展示现价
-								$('#promotionPrice').text(
-										'￥' + product.promotionPrice);
-							}
-							var imgListHtml = '';
-							// 遍历商品详情图列表，并生成批量img标签
-							product.productImgList.map(function(item, index) {
-								imgListHtml += '<div> <img src="'
-										+ getContextPath() + item.imgAddr
-										+ '" width="100%" /></div>';
-							});
-							// 2.0新增
-							if (data.needQRCode) {
-								// 若顾客已登录，则生成购买商品的二维码供商家扫描
-								imgListHtml += '<div> <img src="/o2o/frontend/generateqrcode4product?productId='
-										+ product.productId
-										+ '" width="100%"/></div>';
-							}
-							$('#imgList').html(imgListHtml);
-						}
+		.getJSON(
+			productUrl,
+			function(data) {
+				if (data.success) {
+					// Get product information
+					var product = data.product;
+					// Product Thumbnails
+					$('#product-img').attr('src',
+						product.imgAddr);
+					// Product update time
+					$('#product-time').text(
+						new Date(product.lastEditTime)
+							.Format("yyyy-MM-dd"));
+					if (product.point != undefined) {
+						$('#product-point').text(
+							'Purchase to get' + product.point + 'point(s)');
+					}
+					// Product name
+					$('#product-name').text(product.productName);
+					// Product desc
+					$('#product-desc').text(product.productDesc);
+					// Commodity price display logic, mainly to determine whether the original price of the current price is empty , 
+					// all are empty is not to display the price columns
+					if (product.normalPrice != undefined
+						&& product.promotionPrice != undefined) {
+						// If neither the current price nor the original price is null then both are displayed and the original price is given a deletion sign
+						$('#price').show();
+						$('#normalPrice').html(
+							'<del>' + product.normalPrice + ' NOK'
+							+ '</del>');
+						$('#promotionPrice').text(
+							product.promotionPrice + ' NOK');
+					} else if (product.normalPrice != undefined
+						&& product.promotionPrice == undefined) {
+						// If the original price is not empty and the current price is empty then only the original price will be displayed.
+						$('#price').show();
+						$('#promotionPrice').text(
+							product.normalPrice + ' NOK');
+					} else if (product.normalPrice == undefined
+						&& product.promotionPrice != undefined) {
+						// If the current price is not empty and the original price is empty then only the current price will be displayed.
+						$('#promotionPrice').text(
+							product.promotionPrice + ' NOK');
+					}
+					var imgListHtml = '';
+					// Iterate through the list of product detail images and generate batch img tags
+					product.productImgList.map(function(item, index) {
+						imgListHtml += '<div> <img src="'
+							+ item.imgAddr
+							+ '" width="100%" /></div>';
 					});
-	// 点击后打开右侧栏
+					//if (data.needQRCode) {
+					// If the customer is logged in, a QR code of the purchased product will be generated for the merchant to scan.
+					//imgListHtml += '<div> <img src="/o2o/frontend/generateqrcode4product?productId='
+					//	+ product.productId
+					//	+ '" width="100%"/></div>';
+					//}
+					$('#imgList').html(imgListHtml);
+				}
+			});
+	// Cilck to open right sidebar
 	$('#me').click(function() {
 		$.openPanel('#panel-right-demo');
 	});
