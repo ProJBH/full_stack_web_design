@@ -1,166 +1,165 @@
 $(function() {
 	var loading = false;
-	// 分页允许返回的最大条数，超过此数则禁止访问后台
+	// Maximum number of items allowed to be returned by paging
 	var maxItems = 20;
-	// 默认一页返回的商品数
+	// Default number of products returned on one page
 	var pageSize = 3;
-	// 列出商品列表的URL
+	// URL for listing products
 	var listUrl = '/o2o/frontend/listproductsbyshop';
-	// 默认的页码
+	// Default page number
 	var pageNum = 1;
-	// 从地址栏里获取ShopId
+	// Get ShopId from the address bar
 	var shopId = getQueryString('shopId');
 	var productCategoryId = '';
 	var productName = '';
-	// 获取本店铺信息以及商品类别信息列表的URL
+	// Get the URL for the list of shop information and product category information.
 	var searchDivUrl = '/o2o/frontend/listshopdetailpageinfo?shopId=' + shopId;
-	// 渲染出店铺基本信息以及商品类别列表以供搜索
+	// Renders basic shop information and a list of product categories for searching.
 	getSearchDivData();
-	// 预先加载10条商品信息
+	// Pre-loaded with 10 product information
 	addItems(pageSize, pageNum);
 
-	 //给兑换礼品的a标签赋值兑换礼品的URL，2.0讲解
-	 $('#exchangelist').attr('href', '/o2o/frontend/awardlist?shopId=' +
-	 shopId);
-	// 获取本店铺信息以及商品类别信息列表
+	//Assigning the URL of the redemption gift to the a tag
+	//$('#exchangelist').attr('href', '/o2o/frontend/awardlist?shopId=' + shopId);
+	// Get a list of information of shop and product categories
 	function getSearchDivData() {
 		var url = searchDivUrl;
 		$
-				.getJSON(
-						url,
-						function(data) {
-							if (data.success) {
-								var shop = data.shop;
-								$('#shop-cover-pic').attr('src',
-										getContextPath() + shop.shopImg);
-								$('#shop-update-time').html(
-										new Date(shop.lastEditTime)
-												.Format("yyyy-MM-dd"));
-								$('#shop-name').html(shop.shopName);
-								$('#shop-desc').html(shop.shopDesc);
-								$('#shop-addr').html(shop.shopAddr);
-								$('#shop-phone').html(shop.phone);
-								// 获取后台返回的该店铺的商品类别列表
-								var productCategoryList = data.productCategoryList;
-								var html = '';
-								// 遍历商品列表，生成可以点击搜索相应商品类别下的商品的a标签
-								productCategoryList
-										.map(function(item, index) {
-											html += '<a href="#" class="button" data-product-search-id='
-													+ item.productCategoryId
-													+ '>'
-													+ item.productCategoryName
-													+ '</a>';
-										});
-								// 将商品类别a标签绑定到相应的HTML组件中
-								$('#shopdetail-button-div').html(html);
-							}
-						});
+			.getJSON(
+				url,
+				function(data) {
+					if (data.success) {
+						var shop = data.shop;
+						$('#shop-cover-pic').attr('src', shop.shopImg);
+						$('#shop-update-time').html(
+							new Date(shop.lastEditTime)
+								.Format("yyyy-MM-dd"));
+						$('#shop-name').html(shop.shopName);
+						$('#shop-desc').html(shop.shopDesc);
+						$('#shop-addr').html(shop.shopAddr);
+						$('#shop-phone').html(shop.phone);
+						// Get the list of product categories of the shop returned by the backend.
+						var productCategoryList = data.productCategoryList;
+						var html = '';
+						// Iterate through the product list and generate a tag that can be clicked to search for products under the corresponding product category.
+						productCategoryList
+							.map(function(item, index) {
+								html += '<a href="#" class="button" data-product-search-id='
+									+ item.productCategoryId
+									+ '>'
+									+ item.productCategoryName
+									+ '</a>';
+							});
+						// Bind the product category <a> tag to the corresponding HTML component
+						$('#shopdetail-button-div').html(html);
+					}
+				});
 	}
 	/**
-	 * 获取分页展示的商品列表信息
+	 * Get list of products information displayed in the paging
 	 * 
 	 * @param pageSize
 	 * @param pageIndex
 	 * @returns
 	 */
 	function addItems(pageSize, pageIndex) {
-		// 拼接出查询的URL，赋空值默认就去掉这个条件的限制，有值就代表按这个条件去查询
+		// Splice out the URL of the query, assigning a null value removes the restriction of this condition by default, 
+		// and having a value means querying according to this condition.
 		var url = listUrl + '?' + 'pageIndex=' + pageIndex + '&pageSize='
-				+ pageSize + '&productCategoryId=' + productCategoryId
-				+ '&productName=' + productName + '&shopId=' + shopId;
-		// 设定加载符，若还在后台取数据则不能再次访问后台，避免多次重复加载
+			+ pageSize + '&productCategoryId=' + productCategoryId
+			+ '&productName=' + productName + '&shopId=' + shopId;
+		// Set the loader, to avoid overloading
 		loading = true;
-		// 访问后台获取相应查询条件下的商品列表
+		// Visit the backend to get the list of products under the corresponding query conditions
 		$.getJSON(url, function(data) {
 			if (data.success) {
-				// 获取当前查询条件下商品的总数
+				// Get the total number of products under the current query condition
 				maxItems = data.count;
 				var html = '';
-				// 遍历商品列表，拼接出卡片集合
+				// Iterate through the list of products and splice out the collection of cards
 				data.productList.map(function(item, index) {
 					html += '' + '<div class="card" data-product-id='
-							+ item.productId + '>'
-							+ '<div class="card-header">' + item.productName
-							+ '</div>' + '<div class="card-content">'
-							+ '<div class="list-block media-list">' + '<ul>'
-							+ '<li class="item-content">'
-							+ '<div class="item-media">' + '<img src="'
-							+ getContextPath() + item.imgAddr + '" width="44">'
-							+ '</div>' + '<div class="item-inner">'
-							+ '<div class="item-subtitle">' + item.productDesc
-							+ '</div>' + '</div>' + '</li>' + '</ul>'
-							+ '</div>' + '</div>' + '<div class="card-footer">'
-							+ '<p class="color-gray">'
-							+ new Date(item.lastEditTime).Format("yyyy-MM-dd")
-							+ '更新</p>' + '<span>点击查看</span>' + '</div>'
-							+ '</div>';
+						+ item.productId + '>'
+						+ '<div class="card-header">' + item.productName
+						+ '</div>' + '<div class="card-content">'
+						+ '<div class="list-block media-list">' + '<ul>'
+						+ '<li class="item-content">'
+						+ '<div class="item-media">' + '<img src="'
+						+ item.imgAddr + '" width="44">'
+						+ '</div>' + '<div class="item-inner">'
+						+ '<div class="item-subtitle">' + item.productDesc
+						+ '</div>' + '</div>' + '</li>' + '</ul>'
+						+ '</div>' + '</div>' + '<div class="card-footer">'
+						+ '<p class="color-gray">'
+						+ new Date(item.lastEditTime).Format("yyyy-MM-dd")
+						+ 'Update</p>' + '<span>View</span>' + '</div>'
+						+ '</div>';
 				});
-				// 将卡片集合添加到目标HTML组件里
+				// Adding a collection of cards to the target HTML component
 				$('.list-div').append(html);
-				// 获取目前为止已显示的卡片总数，包含之前已经加载的
+				// Get the total number of cards that have been displayed so far, including the ones that have been loaded previously.
 				var total = $('.list-div .card').length;
-				// 若总数达到跟按照此查询条件列出来的总数一致，则停止后台的加载
+				// If the total number is the same as the total number listed according to this query, then stop loading from the backend.
 				if (total >= maxItems) {
-					// 隐藏提示符
+					// Hide Prompt
 					$('.infinite-scroll-preloader').hide();
 				} else {
 					$('.infinite-scroll-preloader').show();
 				}
-				// 否则页码加1，继续load出新的店铺
+				// Otherwise, add 1 to the page number and continue loading out new shops
 				pageNum += 1;
-				// 加载结束，可以再次加载了
+				// End of loading, ready to load again
 				loading = false;
-				// 刷新页面，显示新加载的店铺
+				// Refresh the page to show the newly loaded shops
 				$.refreshScroller();
 			}
 		});
 	}
 
-	// 下滑屏幕自动进行分页搜索
+	// Automatic paging search by scrolling down the screen
 	$(document).on('infinite', '.infinite-scroll-bottom', function() {
 		if (loading)
 			return;
 		addItems(pageSize, pageNum);
 	});
-	// 选择新的商品类别之后，重置页码，清空原先的商品列表，按照新的类别去查询
+	// After selecting a new product category, reset the page number, clear the original product list, and search by the new category.
 	$('#shopdetail-button-div').on(
-			'click',
-			'.button',
-			function(e) {
-				// 获取商品类别Id
-				productCategoryId = e.target.dataset.productSearchId;
-				if (productCategoryId) {
-					// 若之前已选定了别的category,则移除其选定效果，改成选定新的
-					if ($(e.target).hasClass('button-fill')) {
-						$(e.target).removeClass('button-fill');
-						productCategoryId = '';
-					} else {
-						$(e.target).addClass('button-fill').siblings()
-								.removeClass('button-fill');
-					}
-					$('.list-div').empty();
-					pageNum = 1;
-					addItems(pageSize, pageNum);
+		'click',
+		'.button',
+		function(e) {
+			// Get shop category ID
+			productCategoryId = e.target.dataset.productSearchId;
+			if (productCategoryId) {
+				// If another category has already been selected, remove its selection effect and select a new one instead.
+				if ($(e.target).hasClass('button-fill')) {
+					$(e.target).removeClass('button-fill');
+					productCategoryId = '';
+				} else {
+					$(e.target).addClass('button-fill').siblings()
+						.removeClass('button-fill');
 				}
-			});
-	// 点击商品的卡片进入该商品的详情页
+				$('.list-div').empty();
+				pageNum = 1;
+				addItems(pageSize, pageNum);
+			}
+		});
+	// Click on an item's card to go to the item's detail page.
 	$('.list-div').on(
-			'click',
-			'.card',
-			function(e) {
-				var productId = e.currentTarget.dataset.productId;
-				window.location.href = '/o2o/frontend/productdetail?productId='
-						+ productId;
-			});
-	// 需要查询的商品名字发生变化后，重置页码，清空原先的商品列表，按照新的名字去查询
+		'click',
+		'.card',
+		function(e) {
+			var productId = e.currentTarget.dataset.productId;
+			window.location.href = '/o2o/frontend/productdetail?productId='
+				+ productId;
+		});
+	// When the name of the product to be queried has changed, reset the page number, clear the original product list, and query according to the new name.
 	$('#search').on('change', function(e) {
 		productName = e.target.value;
 		$('.list-div').empty();
 		pageNum = 1;
 		addItems(pageSize, pageNum);
 	});
-	// 点击后打开右侧栏
+	// Click to open the right sidebar
 	$('#me').click(function() {
 		$.openPanel('#panel-right-demo');
 	});
