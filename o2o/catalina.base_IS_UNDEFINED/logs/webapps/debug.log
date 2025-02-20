@@ -1,3 +1,0 @@
-2023-11-26 15:35:53.870 [main] DEBUG com.bohuajia.o2o.dao.HeadLineDAO.queryHeadLine - ==>  Preparing: SELECT line_id, line_name, line_link, line_img, priority, enable_status, create_time, last_edit_time FROM tb_head_line ORDER BY priority DESC 
-2023-11-26 15:35:53.894 [main] DEBUG com.bohuajia.o2o.dao.HeadLineDAO.queryHeadLine - ==> Parameters: 
-2023-11-26 15:35:53.925 [main] DEBUG com.bohuajia.o2o.dao.HeadLineDAO.queryHeadLine - <==      Total: 4

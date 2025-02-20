@@ -1,2 +1,0 @@
-2023-11-25 13:12:28.247 [main] ERROR com.bohuajia.o2o.util.ImageUtil - javax.imageio.IIOException: Can't read input file!
-2023-11-25 13:24:25.418 [main] ERROR com.bohuajia.o2o.util.ImageUtil - javax.imageio.IIOException: Can't read input file!

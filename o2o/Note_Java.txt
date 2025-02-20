@@ -1,8 +1,0 @@
-JAVA:
-	1. Parameters pass though a function by its value. 
-		If the parameter is BASIC DATA TYPE, then only a copy of it'd value will pass to the function.
-			Which means the parameter value be modified inside of function has NO affect on outside(function scope) 
-		If the parameter is an a REFERENCE type, then it's passed in is a copy of the address in the stack.
-		 	Which means the parameter value be modified inside of function WILL have affect on outside as well(function scope)
-	2. RunTimeExecption:
-		It will roll back all changes if it was raised. 
