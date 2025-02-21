@@ -43,6 +43,41 @@ The Vendor Management Web App is an independent project designed to manage vendo
 - **Independent Project:** Developed independently to enhance technical skills and solve real-world problems.
 
 ## Project Structure
+## Project Structure Overview
+
+The project is organized as follows:
+
+- **src/**: Contains the main application code, divided into modules (e.g., controllers, services, repositories).
+- **resources/**: Includes configuration files, SQL scripts, and assets.
+- **test/**: Holds unit and integration tests.
+
+For a detailed view of the project structure, click below:
+
+<details>
+  <summary>Detailed Project Structure</summary>
+
+```plaintext
+vendor_management_web_app/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           ├── controller/
+│   │   │           ├── service/
+│   │   │           ├── repository/
+│   │   │           └── model/
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       └── ...
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── example/
+│                   └── ...
+├── pom.xml
+└── README.md
+</details> ```
 
 ```
 vendor_management_web_app/mvco2o
