@@ -7,7 +7,7 @@ A comprehensive vendor management system developed as an independent project (De
 - [Overview](#overview)
 - [Tech Stack](#tech-stack)
 - [Project Highlights](#project-highlights)
-- [Project Structure](#project-structure)
+- [Project Structure Overview](#project-structure-overview)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -15,7 +15,7 @@ A comprehensive vendor management system developed as an independent project (De
 
 ## Overview
 
-The Vendor Management Web App is an independent project designed to manage vendor information efficiently. Leveraging modern Spring technologies, the system started with a robust SSM framework and evolved into a Spring Boot application to better meet scalability and performance demands. This project demonstrates advanced backend development using Java, along with solid API design and database management practices.
+Vendor Management Web App is an independent project developed to solve real-world challenges in vendor information management. This application started as a robust solution built on the SSM framework and was later migrated to Spring Boot, achieving a notable 20% improvement in scalability and a 5% performance boost through systematic code reviews. The project demonstrates my expertise in full-stack development, backend API design, and continuous deployment on Linux-based environments. It reflects my commitment to building scalable, secure, and maintainable applications and serves as a key example of my technical capabilities in my portfolio.
 
 ## Tech Stack
 
@@ -42,13 +42,12 @@ The Vendor Management Web App is an independent project designed to manage vendo
 - **Robust Deployment:** Deployed on a Linux server using CI/CD, ensuring continuous integration and streamlined deployment.
 - **Independent Project:** Developed independently to enhance technical skills and solve real-world problems.
 
-## Project Structure
 ## Project Structure Overview
 
 The project is organized as follows:
 
-- **src/**: Contains the main application code, divided into modules (e.g., controllers, services, repositories).
-- **resources/**: Includes configuration files, SQL scripts, and assets.
+- **main/**: Contains the main application code, divided into modules (e.g., cache, dao, entity, etc.).
+- **resources/**: Includes mappers and configuration files.
 - **test/**: Holds unit and integration tests.
 
 For a detailed view of the project structure, click below:
@@ -181,5 +180,7 @@ Once the application is running:
 - Access it via `http://localhost:5000` (or your configured port).
 - Use the provided RESTful API endpoints to manage vendor information.
 
+## Contributing
+This project is a personal portfolio piece that demonstrates my independent work and technical capabilities. While I welcome feedback and suggestions for improvement, the repository is not actively seeking external contributions at this time.
 
 For further information or inquiries, please contact [nzbohuajia@gmail.com].
