@@ -57,29 +57,6 @@ For a detailed view of the project structure, click below:
   <summary>Detailed Project Structure</summary>
 
 ```plaintext
-vendor_management_web_app/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── example/
-│   │   │           ├── controller/
-│   │   │           ├── service/
-│   │   │           ├── repository/
-│   │   │           └── model/
-│   │   └── resources/
-│   │       ├── application.properties
-│   │       └── ...
-│   └── test/
-│       └── java/
-│           └── com/
-│               └── example/
-│                   └── ...
-├── pom.xml
-└── README.md
-</details> ```
-
-```
 vendor_management_web_app/mvco2o
 ├── src/
 │   ├── main/
@@ -160,7 +137,7 @@ vendor_management_web_app/springbooto2o
 ├── o2o.sql
 ├── pom.xml
 └── README.md
-```
+</details> ```
 
 ## Installation
 
