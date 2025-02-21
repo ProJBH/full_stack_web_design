@@ -82,7 +82,7 @@ vendor_management_web_app/mvco2o
 │   │   │   │   └── web.xml
 │   │   │   └── index.jsp
 │   └── test/
-│       ├── java/../
+│       └── java/../
 │           ├── dao/
 │           ├── service/
 │           └── BaseTese.java
