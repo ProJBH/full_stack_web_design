@@ -11,7 +11,6 @@ A comprehensive vendor management system developed as an independent project (De
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
@@ -165,8 +164,8 @@ vendor_management_web_app/springbooto2o
      ```properties
      server.port=5000
      spring.datasource.url=jdbc:mysql://localhost:3306/your_database
-     spring.datasource.username=your_username
-     spring.datasource.password=your_password
+     spring.datasource.username=admin
+     spring.datasource.password=123123
      ```
 
 4. **Run the Application:**
