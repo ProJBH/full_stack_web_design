@@ -83,9 +83,9 @@ vendor_management_web_app/mvco2o
 │   │   │   └── index.jsp
 │   └── test/
 │       ├── java/../
-│       │   ├── dao/
-│       │   ├── service/
-│       │   └── BaseTese.java
+│           ├── dao/
+│           ├── service/
+│           └── BaseTese.java
 ├── .gitignore
 ├── backup.sh
 ├── o2o.sql
