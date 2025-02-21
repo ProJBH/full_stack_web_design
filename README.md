@@ -161,10 +161,6 @@ vendor_management_web_app/springbooto2o
    ```bash
    mvn spring-boot:run
    ```
-   - Or run the packaged jar:
-     ```bash
-     java -jar target/vendor_management_web_app.jar
-     ```
 
 ## Usage
 
