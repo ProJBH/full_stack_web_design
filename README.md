@@ -137,6 +137,7 @@ vendor_management_web_app/springbooto2o
 ├── o2o.sql
 ├── pom.xml
 └── README.md
+```
 </details>
 
 ## Installation
