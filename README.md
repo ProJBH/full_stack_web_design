@@ -68,19 +68,19 @@ vendor_management_web_app/mvco2o
 │   │   │   ├── redis.properties
 │   │   │   ├── watermark.jpg
 │   │   │   └── ..
-│   │   ├── webapp/
-│   │   │   ├── resources/
-│   │   │   │   ├── css/
-│   │   │   │   └── js/
-│   │   │   ├── WEB-INF/
-│   │   │   │   ├── html/
-│   │   │   │   │   ├── frontend/
-│   │   │   │   │   ├── local/
-│   │   │   │   │   ├── shop/
-│   │   │   │   │   └── superadmin/
-│   │   │   │   ├── index.jsp
-│   │   │   │   └── web.xml
-│   │   │   └── index.jsp
+│   │   └── webapp/
+│   │       ├── resources/
+│   │       │   ├── css/
+│   │       │   └── js/
+│   │       ├── WEB-INF/
+│   │       │   ├── html/
+│   │       │   │   ├── frontend/
+│   │       │   │   ├── local/
+│   │       │   │   ├── shop/
+│   │       │   │   └── superadmin/
+│   │       │   ├── index.jsp
+│   │       │   └── web.xml
+│   │       └── index.jsp
 │   └── test/
 │       └── java/../
 │           ├── dao/
